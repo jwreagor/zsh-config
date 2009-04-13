@@ -1,0 +1,27 @@
+FULLNAME="Justin W. Reagor"
+EMAIL="justinwr@gmail.com"
+SHELL="/bin/zsh"
+
+HISTFILE="~/.histfile"
+HISTSIZE="1000"
+SAVEHIST=${HISTSIZE}
+
+CDPATH="/Users/justin"
+MANPATH="/usr/local/man:/opt/local/man:$MANPATH"
+EPATH="/Users/justin/Applications/Emacs.app/Contents/MacOS/bin"
+OBJJPATH="/Users/justin/Cocoa/Cappuccino/objj_build/Release/env/bin"
+PATH="/opt/local/bin:$EPATH:$OBJJPATH:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/apache2/bin:$PATH"
+
+EDITOR="$EPATH/emacsclient"
+SVN_EDITOR="$EPATH/emacsclient"
+
+CVS_RSH="ssh"
+GIT_AUTHOR_DATE="YYYY-MM-DD-HH:MM"
+RDOCOPT="-T hanna -S"
+
+__CF_USER_TEXT_ENCODING=0x1F5:0x8000100:0x8000100
+
+export WORDCHARS="*?~=&;!#$%^_-."
+export OBJJ_HOME=/usr/local/share/objj
+export STEAM_BUILD=/Users/justin/Cocoa/Cappuccino/objj_build
+export ZSH_CACHE=~/.zsh/.cache

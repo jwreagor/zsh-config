@@ -1,0 +1,32 @@
+##
+# handles git prompt stuff
+##
+
+chpwd() { 
+  zsh_git_chpwd_update_vars
+  get_git_prompt_info
+  setprompt
+}
+
+preexec() { 
+  zsh_git_preexec_update_vars
+  get_git_prompt_info
+  setprompt
+}
+
+setprompt() {
+  if [ $__ZSH_GIT_VARS_INVALID ]; then
+      git_b=''
+  else
+      git_b=$__CYAN$__ZSH_GIT_BRANCH$__RESET
+  fi
+
+  PROMPT="%# ${git_b:-"%m"}:%~ %B> %b"
+
+  if [ ! $EMACSPATH ]; then
+      RPROMPT="%B<%b [%?] tty%l %*"
+  fi
+}
+
+zcacheinit
+setprompt

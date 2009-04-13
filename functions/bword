@@ -1,0 +1,11 @@
+##
+# backwards removal tcsh-style
+##
+
+tcsh-backward-word() {
+    WORDCHARS="${WORDCHARS:s#/#}"
+    zle emacs-backward-word
+    zle emacs-foreward-word
+}
+
+zle -N tcsh-backward-word

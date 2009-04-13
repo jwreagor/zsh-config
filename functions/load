@@ -1,0 +1,11 @@
+##
+# function loading chain
+##
+
+source ${__ZSH_FUNCS}/conditions
+source ${__ZSH_FUNCS}/zcacheinit
+source ${__ZSH_FUNCS}/git
+source ${__ZSH_FUNCS}/iterm
+source ${__ZSH_FUNCS}/textmate
+source ${__ZSH_FUNCS}/bword
+source ${__ZSH_FUNCS}/calc

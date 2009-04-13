@@ -1,0 +1,145 @@
+##
+# for unix
+##
+
+alias emacs="~/Applications/Emacs.app/Contents/MacOS/Emacs -nw -l ~/.emacs.d/init.el --name '`pwd`'"
+alias ee="emacsclient $1 &"
+alias ec="emacsclient"
+alias et="~/Applications/Emacs.app/Contents/MacOS/Emacs &"
+
+alias l="COLUMNS=12 ls -GFh"
+alias ls="ls -Gh"
+alias ll="ls -lGh"
+alias lm="ls -m"
+alias la="ls -laGh"
+alias dir="ls -asGh"
+alias lf="echo '`ls -1 | wc -l` files'; disall"
+
+alias du="du -hsk"
+alias dis="du -sk ./"
+
+alias pwdcp="pwd | pbcopy"
+alias conns="sudo lsof -i"
+alias makejobs="grep [a-z]: Makefile"
+
+##
+# for mysql
+##
+
+alias mysql="/usr/local/mysql/bin/mysql"
+alias mysqladmin="/usr/local/mysql/bin/mysqladmin"
+
+##
+# for cvs
+##
+
+alias cvs="/usr/bin/env cvs"                        # gotz two bee yous'n mah compilation
+alias cvsnews="cvs diff --brief 2>/dev/null|grep 'Index'|cut -d ':'  -f 2|cut -d ' ' -f 2"
+alias cvsconf="cvs -n up 2>/dev/null | grep C"      # up'n be conflict'n mah tree
+alias cvsknow="cvs -qn up 2>/dev/null | grep '?'"   # cvs ain't bee know'n dee's filez
+alias cvsdown="cvs -qn up 2>/dev/null | grep 'U'"   # dee's filez oh up dah stream
+alias cvsdiff="cvs diff ./ | vim"                   # current dir bee diff'n'color
+
+##
+# for svn
+##
+
+alias svndiff="svn diff | mate"
+alias svnnews="svn status -u | grep /(A|M)/"
+alias svnknow="svn status -u|grep A|grep -v CVS"
+alias svnmiss="svn status -u | grep [\?\!]"
+alias svninfo="svn status | awk '{print \$2}' | xargs svn info | less"
+
+##
+# for git
+##
+
+alias gh="github"
+alias gitk="gitk --all $1 2>/dev/null"
+alias gitb="git branch -a -v"
+alias gitl="git log --stat --graph"
+alias gitd='git log|grep commit|cut -d " " -f2|head -n 2|xargs -n 2 git diff -R'
+alias gitu='git reset --soft HEAD^'
+alias gita="git archive --format=zip `git reflog|grep 'HEAD@{0}'|cut -d ' ' -f1|sed 's/[.]*//g'` > archive.zip"
+
+alias rmdsstores="find ./ -type f|grep .DS_Store|xargs rm"
+
+##
+# for ruby/rails
+##
+
+alias resetrails='ps -a|grep "/usr/local/bin/ruby script/server"|grep -v "grep /usr"|cut -d " " -f1|xargs -n 1 kill -HUP $1'
+alias dierails='ps -a|grep "/usr/local/bin/ruby script/server"|grep -v "grep /usr"|cut -d " " -f1|xargs -n 1 kill -KILL $1'
+alias rb="/usr/local/bin/ruby"
+alias rbe="/usr/local/rubyee/bin/ruby"
+alias fl="find . -name \*.rb | xargs flog"
+alias tt="RAILS_ENV='test' autotest"
+alias sa="rb script/about"
+alias ss="thin start"
+alias sc="rb script/console"
+alias sg="rb script/generate"
+alias sp="rb script/plugin"
+alias sr="rb script/runner"
+alias sd="rb script/destroy"
+
+alias rspec="spec -c -f specdoc "
+alias srs="spec -c -f specdoc spec/"
+alias srq="spec -c spec"
+alias srf="spec -c -f specdoc $1"
+alias ett="mate app config db lib test public spec"
+alias stt="mate spec stories test"
+alias cover="rb script/spec -c spec --format html:./current_coverage.html --diff"
+
+alias ssm='script/spec spec/models/$1 --format specdoc -c'
+alias ssc='script/spec spec/controllers/$1 --format specdoc -c'
+alias ssv='script/spec spec/views/$1 --format specdoc -c'
+
+alias thins='ps ux | grep "thin server" | grep -v "grep" | cut -d " " -f 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28'
+
+##
+# for rubygems
+##
+
+alias gsl="gem search $1 -l"
+alias gsr="gem search $1 -r"
+alias gis="sudo gem install $1 --no-ri"
+alias gun="sudo gem uninstall $1"
+alias gup="sudo gem update $1"
+alias gll="gem search -l | sed 's/(.*)\(.*\)/ /' | sed '/./!d' | sed '/^.*LOCAL.*$/d'"
+
+alias egsl="/usr/local/rubyee/bin/ruby /usr/local/rubyee/bin/gem search $1 -l"
+alias egis="sudo /usr/local/rubyee/bin/ruby /usr/local/rubyee/bin/gem install $1"
+alias egun="sudo /usr/local/rubyee/bin/ruby /usr/local/rubyee/bin/gem uninstall $1"
+alias egup="sudo /usr/local/rubyee/bin/ruby update $1"
+
+##
+# for merb
+##
+
+alias mtt="mate app config merb public spec"
+alias mg="merb-gen "
+alias mc="bin/merb -i"
+alias mm="bin/merb -a thin --debugger"
+alias dmdb="rake db:automigrate"
+
+##
+# for growl
+##
+
+alias myip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2 | growlnotify'
+
+##
+# for pgres
+## 
+
+
+alias pg_start='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data start'
+alias pg_stop='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data stop'
+alias pg_restart='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data restart'
+alias pg_reload='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data reload'
+
+##
+# darwin/os x
+##
+
+alias flushdns="dscacheutil -flushcache"

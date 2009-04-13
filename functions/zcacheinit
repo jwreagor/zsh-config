@@ -1,0 +1,15 @@
+##
+# initialize zsh cache, depending on system user id
+##
+
+zcacheinit() {
+    if has_root_uid; then
+        compinit
+    else
+        compinit -d $__ZSH_CACHE/zcomp-$HOST
+        
+        for f in ~/.zshrc $__ZSH_CACHE/zcomp-$HOST; do
+            zrecompile -p $f && rm -f $f.zwc.old
+        done
+    fi
+}
