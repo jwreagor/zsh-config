@@ -21,7 +21,7 @@ setprompt() {
       git_b=$__CYAN$__ZSH_GIT_BRANCH$__RESET
   fi
 
-  PROMPT="%# ${git_b:-"%m"}:%~ %B> %b"
+  PROMPT="%# ${git_b:-"%m"}:%~ %B» %b"
 
   if [ ! $EMACSPATH ]; then
       RPROMPT="%B<%b [%?] tty%l %*"
