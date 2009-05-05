@@ -119,11 +119,15 @@ get_git_prompt_info() {
   echo -n "${res}"
 }
 
-git_blank_branch() {
-    git symbolic-ref HEAD refs/heads/empty
-    git rm --cached -r .
-    sudo rm -rf *
-    echo "New blank branch" > README
-    git add README
-    git commit -m "New blank branch"
+#
+# Creates a blank slate branch, empty and ready for anything. (TWSS)
+#
+git_slate() {
+  git symbolic-ref HEAD refs/heads/blank-slate
+  git rm -r --cached .
+  rm -rf ./*
+  rm ./.*
+  echo "New blank-slate branch" > README
+  git add README
+  git commit -m "New blank branch named 'blank-slate'"
 }
