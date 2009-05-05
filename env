@@ -2,8 +2,8 @@ FULLNAME="Justin W. Reagor"
 EMAIL="justinwr@gmail.com"
 SHELL="/bin/zsh"
 
-HISTFILE="~/.histfile"
-HISTSIZE="1000"
+HISTFILE=~/.histfile
+HISTSIZE=1000
 SAVEHIST=${HISTSIZE}
 
 CDPATH="/Users/justin"
