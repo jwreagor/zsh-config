@@ -2,7 +2,16 @@
 # for unix
 ##
 
-alias emacs="~/Applications/Emacs.app/Contents/MacOS/Emacs -nw -l ~/.emacs.d/init.el --name '`pwd`'"
+alias d="date '+%Y%m%d'"
+
+if [ -x ~/bin/emacs ]; then
+    alias emacs="~/bin/emacs"
+fi
+
+if [ -x ~/Applications/Emacs.app ]; then
+    alias emacs="~/Applications/Emacs.app/Contents/MacOS/Emacs -nw -l ~/.emacs.d/init.el --name '`pwd`'"
+fi
+
 alias ee="emacsclient $1 &"
 alias ec="emacsclient"
 alias et="~/Applications/Emacs.app/Contents/MacOS/Emacs &"
@@ -60,7 +69,7 @@ alias gitb="git branch -a -v"
 alias gitl="git log --stat --graph"
 alias gitd='git log|grep commit|cut -d " " -f2|head -n 2|xargs -n 2 git diff -R'
 alias gitu='git reset --soft HEAD^'
-alias gita="git archive --format=zip `git reflog|grep 'HEAD@{0}'|cut -d ' ' -f1|sed 's/[.]*//g'` > archive.zip"
+#alias gita="git archive --format=zip `git reflog|grep 'HEAD@{0}'|cut -d ' ' -f1|sed 's/[.]*//g'` > archive.zip"
 
 alias rmdsstores="find ./ -type f|grep .DS_Store|xargs rm"
 
@@ -104,7 +113,7 @@ alias gsl="gem search $1 -l"
 alias gsr="gem search $1 -r"
 alias gis="sudo gem install $1 --no-ri"
 alias gun="sudo gem uninstall $1"
-alias gup="sudo gem update $1"
+alias gup="sudo gem update $1 --no-ri"
 alias gll="gem search -l | sed 's/(.*)\(.*\)/ /' | sed '/./!d' | sed '/^.*LOCAL.*$/d'"
 
 alias egsl="/usr/local/rubyee/bin/ruby /usr/local/rubyee/bin/gem search $1 -l"
