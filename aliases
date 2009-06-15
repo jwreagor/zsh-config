@@ -103,7 +103,7 @@ alias ssm='script/spec spec/models/$1 --format specdoc -c'
 alias ssc='script/spec spec/controllers/$1 --format specdoc -c'
 alias ssv='script/spec spec/views/$1 --format specdoc -c'
 
-alias thins='ps ux | grep "thin server" | grep -v "grep" | cut -d " " -f 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28'
+alias thins='ps aux|grep thin | grep -v grep'
 
 ##
 # for rubygems
