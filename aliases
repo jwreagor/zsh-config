@@ -12,14 +12,17 @@ if [ -x ~/Applications/Emacs.app ]; then
     alias emacs="~/Applications/Emacs.app/Contents/MacOS/Emacs -nw -l ~/.emacs.d/init.el --name '`pwd`'"
 fi
 
-alias ee="emacsclient $1 &"
-alias ec="emacsclient"
-alias et="~/Applications/Emacs.app/Contents/MacOS/Emacs &"
+if [ -x ~/Ruby/bin/githours ]; then
+    alias githours="~/Ruby/bin/githours $1"
+fi
+
+alias ec="emacsclient $1 &"
+alias ee="~/Applications/Emacs.app/Contents/MacOS/Emacs -nw -l ~/.emacs.d/init.el --name '`pwd`' &"
 
 alias l="COLUMNS=12 ls -GFh"
+alias lm="ls -m"
 alias ls="ls -Gh"
 alias ll="ls -lGh"
-alias lm="ls -m"
 alias la="ls -laGh"
 alias dir="ls -asGh"
 alias lf="echo '`ls -1 | wc -l` files'; disall"
@@ -59,30 +62,17 @@ alias svnknow="svn status -u|grep A|grep -v CVS"
 alias svnmiss="svn status -u | grep [\?\!]"
 alias svninfo="svn status | awk '{print \$2}' | xargs svn info | less"
 
-##
-# for git
-##
-
-alias gh="github"
-alias gitk="gitk --all $1 2>/dev/null"
-alias gitb="git branch -a -v"
-alias gitl="git log --stat --graph"
-alias gitd='git log|grep commit|cut -d " " -f2|head -n 2|xargs -n 2 git diff -R'
-alias gitu='git reset --soft HEAD^'
-#alias gita="git archive --format=zip `git reflog|grep 'HEAD@{0}'|cut -d ' ' -f1|sed 's/[.]*//g'` > archive.zip"
-
 alias rmdsstores="find ./ -type f|grep .DS_Store|xargs rm"
 
 ##
 # for ruby/rails
 ##
 
-alias resetrails='ps -a|grep "/usr/local/bin/ruby script/server"|grep -v "grep /usr"|cut -d " " -f1|xargs -n 1 kill -HUP $1'
-alias dierails='ps -a|grep "/usr/local/bin/ruby script/server"|grep -v "grep /usr"|cut -d " " -f1|xargs -n 1 kill -KILL $1'
 alias rb="/usr/local/bin/ruby"
 alias rbe="/usr/local/rubyee/bin/ruby"
-alias fl="find . -name \*.rb | xargs flog"
-alias tt="RAILS_ENV='test' autotest"
+alias rbx="~/Ruby/rubinius/bin/rbx"
+alias rb9="/usr/local/bin/ruby-1.9.1-0"
+
 alias sa="rb script/about"
 alias ss="thin start"
 alias sc="rb script/console"
@@ -91,19 +81,34 @@ alias sp="rb script/plugin"
 alias sr="rb script/runner"
 alias sd="rb script/destroy"
 
-alias rspec="spec -c -f specdoc "
-alias srs="spec -c -f specdoc spec/"
-alias srq="spec -c spec"
-alias srf="spec -c -f specdoc $1"
-alias ett="mate app config db lib test public spec"
-alias stt="mate spec stories test"
-alias cover="rb script/spec -c spec --format html:./current_coverage.html --diff"
-
-alias ssm='script/spec spec/models/$1 --format specdoc -c'
-alias ssc='script/spec spec/controllers/$1 --format specdoc -c'
-alias ssv='script/spec spec/views/$1 --format specdoc -c'
+alias tld="tail -f log/development.log"
+alias tlp="tail -f log/production.log"
+alias tlt="tail -f log/test.log"
 
 alias thins='ps aux|grep thin | grep -v grep'
+alias jw="jeweler"
+alias gh="github"
+alias fl="find . -name \*.rb | xargs flog"
+
+##
+# for specing/testing
+##
+
+alias tt="RAILS_ENV='test' autospec"
+
+alias srp="spec -c -f progress spec/"
+alias sro="spec -c -f profile spec/"
+alias srs="spec -c -f specdoc spec/"
+alias srn="spec -c -f nested spec/"
+alias srr="spec -c -f html spec/"
+alias srf="spec -c -f specdoc $1"
+alias srj="rake spec:javascripts"
+alias frf="rake features"
+alias cover="rb script/spec -c spec --format html:./current_coverage.html --diff"
+
+alias ssm='spec spec/models/$1 --format specdoc -c'
+alias ssc='spec spec/controllers/$1 --format specdoc -c'
+alias ssv='spec spec/views/$1 --format specdoc -c'
 
 ##
 # for rubygems
@@ -140,7 +145,6 @@ alias myip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2 | growlno
 ##
 # for pgres
 ## 
-
 
 alias pg_start='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data start'
 alias pg_stop='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data stop'
