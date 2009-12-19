@@ -51,3 +51,7 @@ source ~/.zsh/aliases
 source ~/.zsh/functions/load
 source ~/.zsh/scripts/load
 source ~/.zsh/prompts/git-prompt
+
+# rvm-install added line:
+if [[ -s /Users/justin/.rvm/scripts/rvm ]] ; then source /Users/justin/.rvm/scripts/rvm ; fi
+
