@@ -26,6 +26,10 @@ setprompt() {
   if [ ! $EMACSPATH ]; then
       RPROMPT="%B<%b [%?] tty%l %*"
   fi
+
+  if [ $rvm_ruby_string ]; then
+      RPROMPT="%B<%b [%?] [${__CYAN}${rvm_ruby_string}${__RESET}] %*"
+  fi
 }
 
 zcacheinit
