@@ -114,12 +114,16 @@ alias ssv='spec spec/views/$1 --format specdoc -c'
 # for rubygems
 ##
 
-alias gsl="gem search $1 -l"
-alias gsr="gem search $1 -r"
 alias gis="sudo gem install $1 --no-ri"
 alias gun="sudo gem uninstall $1"
 alias gup="sudo gem update $1 --no-ri"
 alias gll="gem search -l | sed 's/(.*)\(.*\)/ /' | sed '/./!d' | sed '/^.*LOCAL.*$/d'"
+
+alias rgup="gem update $1 --no-ri"
+alias rgun="gem uninstall $1"
+alias rgis="gem install $1 --no-ri"
+alias rgsl="gem search $1 -l"
+alias rgsr="gem search $1 -r"
 
 alias egsl="/usr/local/rubyee/bin/ruby /usr/local/rubyee/bin/gem search $1 -l"
 alias egis="sudo /usr/local/rubyee/bin/ruby /usr/local/rubyee/bin/gem install $1"
