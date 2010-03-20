@@ -11,7 +11,18 @@ chpwd() {
 preexec() { 
   zsh_git_preexec_update_vars
   get_git_prompt_info
+  set_ruby_version
   setprompt
+}
+
+set_ruby_version() {
+    if [ $RUBY_VERSION ]; then
+        export _ruby_version=$RUBY_VERSION        
+    fi
+
+    if [ $rvm_ruby_string]; then
+        export _ruby_version=$rvm_ruby_string
+    fi
 }
 
 setprompt() {
@@ -27,8 +38,8 @@ setprompt() {
       RPROMPT="%B<%b [%?] tty%l %*"
   fi
 
-  if [ $rvm_ruby_string ]; then
-      RPROMPT="%B<%b [%?] [${__CYAN}${rvm_ruby_string}${__RESET}] %*"
+  if [ $_ruby_version ]; then
+      RPROMPT="%B<%b [%?] [${__CYAN}${_ruby_version}${__RESET}] %*"
   fi
 }
 
