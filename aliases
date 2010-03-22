@@ -35,13 +35,6 @@ alias conns="sudo lsof -i"
 alias makejobs="grep [a-z]: Makefile"
 
 ##
-# for mysql
-##
-
-alias mysql="/usr/local/mysql/bin/mysql"
-alias mysqladmin="/usr/local/mysql/bin/mysqladmin"
-
-##
 # for cvs
 ##
 
@@ -68,24 +61,19 @@ alias rmdsstores="find ./ -type f|grep .DS_Store|xargs rm"
 # for ruby/rails
 ##
 
-alias rb="/usr/local/bin/ruby"
-alias rbe="/usr/local/rubyee/bin/ruby"
-alias rbx="~/Ruby/rubinius/bin/rbx"
-alias rb9="/usr/local/bin/ruby-1.9.1-0"
-
-alias sa="rb script/about"
+alias sa="ruby script/about"
 alias ss="thin start"
-alias sc="rb script/console"
-alias sg="rb script/generate"
-alias sp="rb script/plugin"
-alias sr="rb script/runner"
-alias sd="rb script/destroy"
+alias sc="ruby script/console"
+alias sg="ruby script/generate"
+alias sp="ruby script/plugin"
+alias sr="ruby script/runner"
+alias sd="ruby script/destroy"
 
 alias tld="tail -f log/development.log"
 alias tlp="tail -f log/production.log"
 alias tlt="tail -f log/test.log"
 
-alias thins='ps aux|grep thin | grep -v grep'
+alias thins='ps aux | grep thin | grep -v grep'
 alias jw="jeweler"
 alias gh="github"
 alias fl="find . -name \*.rb | xargs flog"
@@ -129,16 +117,6 @@ alias egsl="/usr/local/rubyee/bin/ruby /usr/local/rubyee/bin/gem search $1 -l"
 alias egis="sudo /usr/local/rubyee/bin/ruby /usr/local/rubyee/bin/gem install $1"
 alias egun="sudo /usr/local/rubyee/bin/ruby /usr/local/rubyee/bin/gem uninstall $1"
 alias egup="sudo /usr/local/rubyee/bin/ruby update $1"
-
-##
-# for merb
-##
-
-alias mtt="mate app config merb public spec"
-alias mg="merb-gen "
-alias mc="bin/merb -i"
-alias mm="bin/merb -a thin --debugger"
-alias dmdb="rake db:automigrate"
 
 ##
 # for growl

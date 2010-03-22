@@ -20,7 +20,7 @@ set_ruby_version() {
         export _ruby_version=$RUBY_VERSION        
     fi
 
-    if [ $rvm_ruby_string]; then
+    if [ $rvm_ruby_string ]; then
         export _ruby_version=$rvm_ruby_string
     fi
 }
