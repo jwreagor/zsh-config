@@ -1,6 +1,7 @@
 FULLNAME="Justin W. Reagor"
 EMAIL="justinwr@gmail.com"
 SHELL="/bin/zsh"
+MINE="justinr"
 
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -15,6 +16,8 @@ PATH="~/bin:/opt/local/bin:$MYSQL5PATH:$EPATH:$OBJJPATH:/usr/local/bin:/usr/loca
 
 EDITOR="$EPATH/emacsclient"
 SVN_EDITOR="$EPATH/emacsclient"
+
+IRBRC="/Users/justin/.irbrc"
 
 CVS_RSH="ssh"
 GIT_AUTHOR_DATE="YYYY-MM-DD-HH:MM"
