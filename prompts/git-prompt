@@ -23,6 +23,10 @@ set_ruby_version() {
     if [ $rvm_ruby_string ]; then
         export _ruby_version=$rvm_ruby_string
     fi
+
+    if [ $rvm_gemset_name ]; then
+      export _rvm_gemset="@${rvm_gemset_name}"
+    fi
 }
 
 setprompt() {
@@ -39,7 +43,7 @@ setprompt() {
   fi
 
   if [ $_ruby_version ]; then
-      RPROMPT="%B<%b [%?] [${__CYAN}${_ruby_version}${__RESET}] %*"
+      RPROMPT="%B<%b [%?] [${__CYAN}${_ruby_version}${_rvm_gemset}${__RESET}] %*"
   fi
 }
 
