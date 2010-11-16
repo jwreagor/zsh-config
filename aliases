@@ -16,7 +16,7 @@ if [ -x ~/Ruby/bin/githours ]; then
     alias githours="~/Ruby/bin/githours $1"
 fi
 
-alias ec="emacsclient $1 &"
+alias ec="emacsclient"
 alias ee="~/Applications/Emacs.app/Contents/MacOS/Emacs -nw -l ~/.emacs.d/init.el --name '`pwd`' &"
 
 alias l="COLUMNS=12 ls -GFh"
@@ -61,6 +61,8 @@ alias rmdsstores="find ./ -type f|grep .DS_Store|xargs rm"
 # for ruby/rails
 ##
 
+alias tm="terminitor"
+
 alias sa="ruby script/about"
 alias ss="thin start"
 alias sc="ruby script/console"
@@ -78,6 +80,12 @@ alias jw="jeweler"
 alias gh="github"
 alias fl="find . -name \*.rb | xargs flog"
 
+alias rrg="rake routes | grep $1"
+
+alias psl="pivotal_slacker"
+
+alias curlx='curl -v -H "X_REQUESTED_WITH: XMLHttpRequest"'
+
 ##
 # for specing/testing
 ##
@@ -86,12 +94,13 @@ alias tt="RAILS_ENV='test' autospec"
 
 alias srp="spec -c -f progress spec/"
 alias sro="spec -c -f profile spec/"
-alias srs="spec -c -f specdoc spec/"
+alias srs="spec -c -f progress spec/"
 alias srn="spec -c -f nested spec/"
 alias srr="spec -c -f html spec/"
 alias srf="spec -c -f specdoc $1"
 alias srj="rake spec:javascripts"
 alias frf="rake features"
+alias ara="AUTOFEATURE=true autotest"
 alias cover="rb script/spec -c spec --format html:./current_coverage.html --diff"
 
 alias ssm='spec spec/models/$1 --format specdoc -c'
@@ -134,7 +143,16 @@ alias pg_restart='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Librar
 alias pg_reload='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data reload'
 
 ##
+# for mysql
+##
+
+alias db_time="echo `date \"+%Y%m%d%H%M%S\"`"
+alias dumptj="mysqldump -u root tweety_jobs_development > /Users/justin/Development/db/tweety_jobs_development-`db_time`.sql"
+
+
+##
 # darwin/os x
 ##
 
-alias flushdns="dscacheutil -flushcache"
+alias fdns="dscacheutil -flushcache"
+alias psg="ps aux | grep $1"

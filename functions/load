@@ -9,3 +9,4 @@ source ${__ZSH_FUNCS}/iterm
 source ${__ZSH_FUNCS}/textmate
 source ${__ZSH_FUNCS}/bword
 source ${__ZSH_FUNCS}/calc
+source ${__ZSH_FUNCS}/dev

@@ -1,0 +1,8 @@
+##
+# development workflow functs
+##
+
+# list pids for unicorn master processes 
+umm () {
+    ps ax | grep "unicorn.*master.*\-p.${1}" | cut -d ' ' -f 1
+}
