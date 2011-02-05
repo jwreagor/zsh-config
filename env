@@ -13,7 +13,7 @@ EPATH="/Users/justin/Applications/Emacs.app/Contents/MacOS/bin"
 SCPATH="/Users/justin/Development/Javascript/sprout/abbot/bin"
 OBJJPATH="/Users/justin/Cocoa/Cappuccino/objj_build/Release/env/bin"
 MYSQL5PATH="/opt/local/lib/mysql5/bin/"
-PATH="$SCPATH:~/bin:/opt/local/bin:$MYSQL5PATH:$EPATH:$OBJJPATH:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/apache2/bin:$PATH"
+PATH="~/bin:/opt/local/bin:$MYSQL5PATH:$EPATH:$OBJJPATH:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/apache2/bin:$PATH"
 
 EDITOR="$EPATH/emacsclient"
 SVN_EDITOR="$EPATH/emacsclient"

@@ -116,9 +116,9 @@ alias gun="sudo gem uninstall $1"
 alias gup="sudo gem update $1 --no-ri"
 alias gll="gem search -l | sed 's/(.*)\(.*\)/ /' | sed '/./!d' | sed '/^.*LOCAL.*$/d'"
 
-alias rgup="gem update $1 --no-ri"
+alias rgup="gem update $1 --no-ri --no-rdoc"
 alias rgun="gem uninstall $1"
-alias rgis="gem install $1 --no-ri"
+alias rgis="gem install $1 --no-ri --no-rdoc"
 alias rgsl="gem search $1 -l"
 alias rgsr="gem search $1 -r"
 

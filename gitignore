@@ -1,0 +1,17 @@
+.DS_Store
+.rvmrc
+*.rbc
+.#
+build/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+.svn
+.DS_Store
+profile
+.bundle
+Gemfile.lock
+.sass-cache
+coverage
+*.gem
