@@ -15,3 +15,4 @@ Gemfile.lock
 .sass-cache
 coverage
 *.gem
+TAGS

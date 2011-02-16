@@ -5,15 +5,11 @@
 alias d="date '+%Y%m%d'"
 
 if [ -x ~/bin/emacs ]; then
-    alias emacs="~/bin/emacs"
+  alias emacs="~/bin/emacs"
 fi
 
 if [ -x ~/Applications/Emacs.app ]; then
-    alias emacs="~/Applications/Emacs.app/Contents/MacOS/Emacs -nw -l ~/.emacs.d/init.el --name '`pwd`'"
-fi
-
-if [ -x ~/Ruby/bin/githours ]; then
-    alias githours="~/Ruby/bin/githours $1"
+  alias emacs="~/Applications/Emacs.app/Contents/MacOS/Emacs -nw -l ~/.emacs.d/init.el --name '`pwd`'"
 fi
 
 alias ec="emacsclient"
@@ -137,10 +133,12 @@ alias myip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2 | growlno
 # for pgres
 ## 
 
-alias pg_start='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data start'
-alias pg_stop='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data stop'
-alias pg_restart='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data restart'
-alias pg_reload='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data reload'
+if [ -x /Library/PostgreSQL/8.3/bin/pg_ctl ]; then
+  alias pg_start='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data start'
+  alias pg_stop='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data stop'
+  alias pg_restart='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data restart'
+  alias pg_reload='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data reload'
+fi
 
 ##
 # for mysql
@@ -156,3 +154,11 @@ alias dumptj="mysqldump -u root tweety_jobs_development > /Users/justin/Developm
 
 alias fdns="dscacheutil -flushcache"
 alias psg="ps aux | grep $1"
+
+if [ $platform = "osx" ]; then
+  alias psm="ps auxm | head"
+elif [ $platform = "linux" ]; then
+  alias psm="ps aux --sort -rss | head"
+fi
+
+alias allcron="for user in $(cut -f1 -d: /etc/passwd); do sudo crontab -u $user -l; done"

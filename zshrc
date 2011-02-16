@@ -2,12 +2,23 @@
 # config ZSH
 ##
 
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+  platform='linux'
+elif [[ "$unamestr" == 'FreeBSD' ]]; then
+  platform='freebsd'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+  platform='osx'
+fi
+
 fpath=(~/.zsh/functions $fpath)
 
 bindkey -e
 
 setopt appendhistory autocd notify extendedglob mark_dirs prompt_subst
 
+# special settings for dumb terminals
 #if [ "$TERM" = "dumb" ]
 #then
 #  unsetopt zle
@@ -60,4 +71,3 @@ fi
 if [[ -s /Users/justin/.rvm/scripts/rvm ]]; then
     source /Users/justin/.rvm/scripts/rvm
 fi
-
