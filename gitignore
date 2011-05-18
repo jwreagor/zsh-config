@@ -11,7 +11,6 @@ build/
 .DS_Store
 profile
 .bundle
-Gemfile.lock
 .sass-cache
 coverage
 *.gem

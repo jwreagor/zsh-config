@@ -1,5 +1,6 @@
 ##
-# handles git prompt stuff
+# git and rvm prompt info
+# : taken from some place, not sure now
 ##
 
 chpwd() { 
@@ -16,16 +17,8 @@ preexec() {
 }
 
 set_ruby_version() {
-    if [ $RUBY_VERSION ]; then
-        export _ruby_version=$RUBY_VERSION        
-    fi
-
-    if [ $rvm_ruby_string ]; then
-        export _ruby_version=$rvm_ruby_string
-    fi
-
-    if [ $rvm_gemset_name ]; then
-      export _rvm_gemset="@${rvm_gemset_name}"
+    if [ $GEM_HOME ]; then
+        export _ruby_version=`rvm_prompt`
     fi
 }
 
@@ -33,17 +26,17 @@ setprompt() {
   if [ $__ZSH_GIT_VARS_INVALID ]; then
       git_b=''
   else
-      git_b=$__CYAN$__ZSH_GIT_BRANCH$__RESET
+      git_b=$__BLUE$__ZSH_GIT_BRANCH$__RESET
   fi
 
-  PROMPT="%# ${git_b:-"%m"}:%~ %B» %b"
+  PROMPT="%# $__BLUE${git_b:-"%m"}$__RESET:$__YELLOW%~$__RESET %B» %b"
 
   if [ ! $EMACSPATH ]; then
       RPROMPT="%B<%b [%?] tty%l %*"
   fi
 
   if [ $_ruby_version ]; then
-      RPROMPT="%B<%b [%?] [${__CYAN}${_ruby_version}${_rvm_gemset}${__RESET}] %*"
+      RPROMPT="%B<%b [%?] [${__MAGENTA}${_ruby_version}${__RESET}] %*"
   fi
 }
 
