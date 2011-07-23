@@ -1,4 +1,4 @@
-plugins=(git osx gem brew bundler cap npm)
+plugins=(git osx gem brew bundler cap npm rvm)
 
 bindkey -e
 
@@ -14,6 +14,8 @@ if [[ -s /Users/justin/.local-aliases ]]; then
     source /Users/justin/.local-aliases
 fi
 
-if [[ -s /Users/justin/.rvm/scripts/rvm ]]; then
-    source /Users/justin/.rvm/scripts/rvm
+if [[ -s /usr/local/rvm/scripts/rvm ]]; then
+    source /usr/local/rvm/scripts/rvm
 fi
+
+unsetopt correct correctall
