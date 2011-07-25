@@ -14,6 +14,11 @@ if [[ -s /Users/justin/.local-aliases ]]; then
     source /Users/justin/.local-aliases
 fi
 
+if [[ -s /usr/local/rvm/scripts/rvm ]]; then
+    source /Users/justin/.rvm/scripts/rvm
+fi
+
 if [[ -s /Users/justin/.rvm/scripts/rvm ]]; then
     source /Users/justin/.rvm/scripts/rvm
 fi
+
