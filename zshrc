@@ -1,4 +1,4 @@
-plugins=(git osx gem brew bundler cap npm rvm)
+plugins=(git osx gem brew bundler cap npm rvm zsh-syntax-highlighting)
 
 bindkey -e
 
