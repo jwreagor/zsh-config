@@ -6,14 +6,18 @@ alias d="date '+%Y%m%d'"
 
 if [ -x ~/bin/emacs ]; then
   alias emacs="~/bin/emacs"
+  alias ec="emacsclient"
 fi
 
 if [ -x ~/Applications/Emacs.app ]; then
   alias emacs="~/Applications/Emacs.app/Contents/MacOS/Emacs -nw -l ~/.emacs.d/init.el --name '`pwd`'"
+  alias ec="~/Applications/Emacs.app/Contents/MacOS/Emacs/bin/emacsclient"
 fi
 
-alias ec="emacsclient"
-alias ee="~/Applications/Emacs.app/Contents/MacOS/Emacs -nw -l ~/.emacs.d/init.el --name '`pwd`' &"
+if [ -x /Applications/Emacs.app ]; then
+  alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw -l ~/.emacs.d/init.el --name '`pwd`'"
+  alias ec="/Applications/Emacs.app/Contents/MacOS/Emacs/bin/emacsclient"
+fi
 
 alias l="COLUMNS=12 ls -GFh"
 alias lm="ls -m"
@@ -28,7 +32,7 @@ alias dis="du -sk ./"
 
 alias pwdcp="pwd | pbcopy"
 alias conns="sudo lsof -i"
-alias makejobs="grep [a-z]: Makefile"
+alias makejobs="grep '[a-z]+\:' Makefile"
 
 ##
 # for cvs
@@ -57,30 +61,24 @@ alias rmdsstores="find ./ -type f|grep .DS_Store|xargs rm"
 # for ruby/rails
 ##
 
-alias tm="terminitor"
-
-alias sa="ruby script/about"
-alias ss="thin start"
 alias sc="ruby script/console"
 alias sg="ruby script/generate"
 alias sp="ruby script/plugin"
-alias sr="ruby script/runner"
-alias sd="ruby script/destroy"
 
 alias tld="tail -f log/development.log"
 alias tlp="tail -f log/production.log"
 alias tlt="tail -f log/test.log"
 
 alias thins='ps aux | grep thin | grep -v grep'
-alias jw="jeweler"
-alias gh="github"
 alias fl="find . -name \*.rb | xargs flog"
 
 alias rrg="rake routes | grep $1"
 
-alias psl="pivotal_slacker"
-
 alias curlx='curl -v -H "X_REQUESTED_WITH: XMLHttpRequest"'
+
+alias rake='noglob rake'
+
+alias be='bundle exec'
 
 ##
 # for specing/testing
