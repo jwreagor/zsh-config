@@ -20,11 +20,11 @@ if [ -x /Applications/Emacs.app ]; then
 fi
 
 alias l="COLUMNS=12 ls -GFh"
-alias lm="ls -m"
-alias ls="ls -Gh"
-alias ll="ls -lGh"
-alias la="ls -laGh"
-alias dir="ls -asGh"
+alias lm="ls -mF"
+alias ls="ls -GhF"
+alias ll="ls -lGhF"
+alias la="ls -laGhF"
+alias dir="ls -asGhF"
 alias lf="echo '`ls -1 | wc -l` files'; disall"
 
 alias du="du -hsk"
