@@ -78,7 +78,7 @@ alias curlx='curl -v -H "X_REQUESTED_WITH: XMLHttpRequest"'
 
 alias rake='noglob rake'
 
-alias be='bundle exec'
+alias vbox='VBoxManage'
 
 ##
 # for specing/testing
