@@ -9,9 +9,10 @@ build/
 *.perspectivev3
 .svn
 .DS_Store
-profile
 .bundle
 .sass-cache
 coverage
 *.gem
 TAGS
+rdoc/
+*.org
