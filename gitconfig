@@ -26,7 +26,7 @@
     stage = push origin staging
     wipe = reset --hard
 [core]
-	excludesfile = /Users/justin/.gitignore
+	excludesfile = ~/.gitignore
 	editor = emacsclient
 [apply]
 	whitespace = nowarn

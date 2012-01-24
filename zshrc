@@ -10,16 +10,16 @@ source ~/.zsh/aliases
 source ~/.zsh/functions/load
 source $ZSH/oh-my-zsh.sh
 
-if [[ -s /Users/justin/.local-aliases ]]; then
-    source /Users/justin/.local-aliases
+if [[ -s /Users/$(whoami)/.local-aliases ]]; then
+    source /Users/$(whoami)/.local-aliases
 fi
 
 if [[ -s /usr/local/rvm/scripts/rvm ]]; then
     source /usr/local/rvm/scripts/rvm
 fi
 
-if [[ -s /Users/justin/.rvm/scripts/rvm ]]; then
-    source /Users/justin/.rvm/scripts/rvm
+if [[ -s /Users/$(whoami)/.rvm/scripts/rvm ]]; then
+    source /Users/$(whoami)/.rvm/scripts/rvm
 fi
 
 unsetopt correct correctall

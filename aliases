@@ -5,18 +5,17 @@
 alias d="date '+%Y%m%d'"
 
 if [ -x ~/bin/emacs ]; then
-  alias emacs="~/bin/emacs"
-  alias ec="emacsclient"
+    alias emacs="~/bin/emacs"
 fi
 
 if [ -x ~/Applications/Emacs.app ]; then
-  alias emacs="~/Applications/Emacs.app/Contents/MacOS/Emacs -nw -l ~/.emacs.d/init.el --name '`pwd`'"
-  alias ec="~/Applications/Emacs.app/Contents/MacOS/Emacs/bin/emacsclient"
+    alias emacs="~/Applications/Emacs.app/Contents/MacOS/Emacs -nw -l ~/.emacs.d/init.el --name '`pwd`'"
+    alias emacsclient="~/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 fi
 
-if [ -x /Applications/Emacs.app ]; then
-  alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw -l ~/.emacs.d/init.el --name '`pwd`'"
-  alias ec="/Applications/Emacs.app/Contents/MacOS/Emacs/bin/emacsclient"
+if [ -x /Applications/Emacs.app ]; then 
+    alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw -l ~/.emacs.d/init.el --name '`pwd`'"
+    alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 fi
 
 alias l="COLUMNS=12 ls -GFh"
@@ -26,6 +25,7 @@ alias ll="ls -lGhF"
 alias la="ls -laGhF"
 alias dir="ls -asGhF"
 alias lf="echo '`ls -1 | wc -l` files'; disall"
+alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
 
 alias du="du -hsk"
 alias dis="du -sk ./"
