@@ -10,8 +10,8 @@ source ~/.zsh/aliases
 source ~/.zsh/functions/load
 source $ZSH/oh-my-zsh.sh
 
-if [[ -s /Users/$(whoami)/.local-aliases ]]; then
-    source /Users/$(whoami)/.local-aliases
+if [[ -s $HOME/.local-aliases ]]; then
+    source $HOME/.local-aliases
 fi
 
 if [[ -s /usr/local/rvm/scripts/rvm ]]; then
