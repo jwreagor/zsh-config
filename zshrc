@@ -23,3 +23,5 @@ if [[ -s /Users/$(whoami)/.rvm/scripts/rvm ]]; then
 fi
 
 unsetopt correct correctall
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
