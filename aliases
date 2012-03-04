@@ -33,6 +33,7 @@ alias dis="du -sk ./"
 alias pwdcp="pwd | pbcopy"
 alias conns="sudo lsof -i"
 alias makejobs="grep '[a-z]+\:' Makefile"
+alias ctags="/usr/local/bin/ctags"
 
 ##
 # for cvs
