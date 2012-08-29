@@ -137,6 +137,7 @@ if [ -x /Library/PostgreSQL/8.3/bin/pg_ctl ]; then
   alias pg_stop='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data stop'
   alias pg_restart='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data restart'
   alias pg_reload='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data reload'
+  alias pg_sizes='echo "SELECT relname, reltuples, relpages * 8 / 1024 AS "MB" FROM pg_class ORDER BY relpages DESC;" | psql $1'
 fi
 
 ##
