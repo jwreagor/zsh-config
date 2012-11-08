@@ -19,6 +19,7 @@
     lg = log --stat --graph
     ln = log -p HEAD..FETCH_HEAD
     lo = log --oneline --stat --graph
+    ll = log --oneline --graph
     pl = pull
     ps = push
     ra = rebase --abort
