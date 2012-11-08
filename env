@@ -16,7 +16,7 @@ elif [ -d "/Users/justin/Applications/Emacs.app" ]; then
   EPATH="/Users/justin/Applications/Emacs.app/Contents/MacOS/bin"
 fi
 
-FULLNAME="Justin W. Reagor"
+FULLNAME="Justin Reagor"
 EMAIL="justinwr@gmail.com"
 SHELL="/bin/zsh"
 
@@ -27,11 +27,10 @@ SAVEHIST=${HISTSIZE}
 CDPATH="/Users/justin"
 MANPATH="/usr/local/man:/opt/local/man:$MANPATH"
 
-SCPATH="/Users/justin/Development/Javascript/sprout/abbot/bin"
-OBJJPATH="/Users/justin/Cocoa/Cappuccino/objj_build/Release/env/bin"
-MYSQL5PATH="/opt/local/lib/mysql5/bin/"
+MYSQL5PATH="/opt/local/lib/mysql5/bin"
+NODE_BIN="/usr/local/share/npm/bin"
 NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
-PATH="~/bin:/usr/local/node_modules/capt/bin:/opt/local/bin:$MYSQL5PATH:$EPATH:$OBJJPATH:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/apache2/bin:$PATH"
+PATH="~/bin:/opt/local/bin:$NODE_BIN:$MYSQL5PATH:$EPATH:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
 
 EDITOR="$EPATH/emacsclient"
 SVN_EDITOR="$EPATH/emacsclient"
@@ -45,8 +44,6 @@ RDOCOPT="-T hanna -S"
 __CF_USER_TEXT_ENCODING=0x1F5:0x8000100:0x8000100
 
 export WORDCHARS="*?~=&;!#$%^_-."
-export OBJJ_HOME=/usr/local/share/objj
-export STEAM_BUILD=/Users/justin/Cocoa/Cappuccino/objj_build
 export ZSH_CACHE=~/.zsh/.cache
 
 export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"
