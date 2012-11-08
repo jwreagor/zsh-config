@@ -171,3 +171,7 @@ elif [ $platform = "linux" ]; then
 fi
 
 alias allcron="for user in $(cut -f1 -d: /etc/passwd); do sudo crontab -u $user -l; done"
+
+if [ -x "/usr/local/bin/meteor" ]; then
+    alias me="meteor"
+fi
