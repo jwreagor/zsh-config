@@ -13,7 +13,7 @@ if [ -x ~/Applications/Emacs.app ]; then
     alias emacsclient="~/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 fi
 
-if [ -x /Applications/Emacs.app ]; then 
+if [ -x /Applications/Emacs.app ]; then
     alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw -l ~/.emacs.d/init.el --name '`pwd`'"
     alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 fi
@@ -126,6 +126,8 @@ alias egup="sudo /usr/local/rubyee/bin/ruby update $1"
 
 alias v="vagrant"
 
+alias lc="librarian-chef"
+
 ##
 # for growl
 ##
@@ -134,7 +136,7 @@ alias myip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2 | growlno
 
 ##
 # for pgres
-## 
+##
 
 if [ -x /Library/PostgreSQL/8.3/bin/pg_ctl ]; then
   alias pg_start='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data start'
@@ -187,3 +189,9 @@ alias missioncontrol="mpg123 -Cq http://ice.somafm.com/missioncontrol"
 alias secretagent="mpg123 -Cq http://ice.somafm.com/secretagent"
 alias christmas="mpg123 -Cq http://ice.somafm.com/christmas"
 alias dronezone="mpg123 -Cq http://ice.somafm.com/dronezone"
+
+##
+# aws
+##
+
+#alias ec2vol="ec2-describe-volumes | grep $1 | cut -f3"
