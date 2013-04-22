@@ -64,45 +64,23 @@ alias rmdsstores="find ./ -type f|grep .DS_Store|xargs rm"
 # for ruby/rails
 ##
 
-alias sc="ruby script/console"
-alias sg="ruby script/generate"
-alias sp="ruby script/plugin"
+alias rb='rbenv'
+alias re='rbenv exec'
+alias rh='rbenv rehash'
+alias ri='rbenv install'
+alias rl='rbenv install --list'
 
 alias tld="tail -f log/development.log"
 alias tlp="tail -f log/production.log"
 alias tlt="tail -f log/test.log"
-
-alias thins='ps aux | grep thin | grep -v grep'
 alias fl="find . -name \*.rb | xargs flog"
-
 alias rrg="rake routes | grep $1"
-
 alias curlx='curl -v -H "X_REQUESTED_WITH: XMLHttpRequest"'
-
 alias rake='noglob rake'
-
 alias vbox='VBoxManage'
+alias lc='bin/librarian-chef'
 
-##
-# for specing/testing
-##
-
-alias tt="RAILS_ENV='test' autospec"
-
-alias srp="spec -c -f progress spec/"
-alias sro="spec -c -f profile spec/"
-alias srs="spec -c -f progress spec/"
-alias srn="spec -c -f nested spec/"
-alias srr="spec -c -f html spec/"
-alias srf="spec -c -f specdoc $1"
-alias srj="rake spec:javascripts"
-alias frf="rake features"
-alias ara="AUTOFEATURE=true autotest"
-alias cover="rb script/spec -c spec --format html:./current_coverage.html --diff"
-
-alias ssm='spec spec/models/$1 --format specdoc -c'
-alias ssc='spec spec/controllers/$1 --format specdoc -c'
-alias ssv='spec spec/views/$1 --format specdoc -c'
+alias story='git log --oneline -n 1 | grep -o "\[.*\]" | tr -d "\n" | pbcopy'
 
 ##
 # for rubygems
@@ -184,6 +162,7 @@ fi
 
 alias groovesalad="mpg123 -Cq http://ice.somafm.com/groovesalad"
 alias cliqhop="mpg123 -Cq http://ice.somafm.com/cliqhop"
+alias beatblender="mpg123 -Cq http://ice.somafm.com/beatblender"
 alias spacestation="mpg123 -Cq http://ice.somafm.com/spacestation"
 alias missioncontrol="mpg123 -Cq http://ice.somafm.com/missioncontrol"
 alias secretagent="mpg123 -Cq http://ice.somafm.com/secretagent"

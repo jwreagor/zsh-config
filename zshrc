@@ -1,4 +1,4 @@
-plugins=(git osx gem brew bundler cap npm rvm zsh-syntax-highlighting)
+plugins=(git osx gem brew bundler cap npm rbenv zsh-syntax-highlighting)
 
 bindkey -e
 
@@ -24,7 +24,8 @@ fi
 
 unsetopt correct correctall
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 source "`brew --prefix grc`/etc/grc.bashrc"
 
-PATH=$PATH:/usr/local/rvm/bin # Add RVM to PATH for scripting
+export PATH=$HOME/.rbenv/bin:$PATH
+
+eval "$(rbenv init -)"
