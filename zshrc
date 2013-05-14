@@ -26,6 +26,4 @@ unsetopt correct correctall
 
 source "`brew --prefix grc`/etc/grc.bashrc"
 
-export PATH=$HOME/.rbenv/bin:$PATH
-
 eval "$(rbenv init -)"
