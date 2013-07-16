@@ -12,8 +12,8 @@ fi
 
 if [ -d "/Applications/Emacs.app" ]; then
   EPATH="/Applications/Emacs.app/Contents/MacOS/bin"
-elif [ -d "/Users/justin/Applications/Emacs.app" ]; then
-  EPATH="/Users/justin/Applications/Emacs.app/Contents/MacOS/bin"
+elif [ -d "/Users/$(whoami)/Applications/Emacs.app" ]; then
+  EPATH="/Users/$(whoami)/Applications/Emacs.app/Contents/MacOS/bin"
 fi
 
 FULLNAME="Justin Reagor"
@@ -24,18 +24,17 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=${HISTSIZE}
 
-CDPATH="/Users/justin"
+CDPATH="/Users/$(whoami)"
 MANPATH="/usr/local/man:/opt/local/man:$MANPATH"
 
-MYSQL5PATH="/opt/local/lib/mysql5/bin"
 NODE_BIN="/usr/local/share/npm/bin"
 NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
-PATH="~/bin:/opt/local/bin:$NODE_BIN:$MYSQL5PATH:$EPATH:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+PATH="~/bin:/opt/local/bin:$NODE_BIN:$EPATH:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
 
 EDITOR="$EPATH/emacsclient"
 SVN_EDITOR="$EPATH/emacsclient"
 
-IRBRC="/Users/justin/.irbrc"
+IRBRC="/Users/$(whoami)/.irbrc"
 
 CVS_RSH="ssh"
 GIT_AUTHOR_DATE="YYYY-MM-DD-HH:MM"
@@ -60,3 +59,5 @@ DISABLE_AUTO_TITLE="true"
 if [[ -x "/usr/local/lib/node" ]]; then
     export NODE_PATH="/usr/local/lib/node"
 fi
+
+ERLANGPATH=`brewpath erlang`

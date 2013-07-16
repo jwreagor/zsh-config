@@ -1,0 +1,6 @@
+##
+# Returns the installation path of a homebrew package
+#
+brewpath() {
+    brew info $1 | grep "^\/usr\/local\/Cellar" | tail -1 | cut -f1 -d' '
+}
