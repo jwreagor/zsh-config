@@ -32,33 +32,12 @@ alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^
 alias du="du -hsk"
 alias dis="du -sk ./"
 
+alias dbtime="echo `date \"+%Y%m%d%H%M%S\"`"
+
 alias pwdcp="pwd | pbcopy"
 alias conns="sudo lsof -i"
 alias makejobs="grep '[a-z]+\:' Makefile"
 alias ctags="/usr/local/bin/ctags"
-
-##
-# for cvs
-##
-
-alias cvs="/usr/bin/env cvs"                        # gotz two bee yous'n mah compilation
-alias cvsnews="cvs diff --brief 2>/dev/null|grep 'Index'|cut -d ':'  -f 2|cut -d ' ' -f 2"
-alias cvsconf="cvs -n up 2>/dev/null | grep C"      # up'n be conflict'n mah tree
-alias cvsknow="cvs -qn up 2>/dev/null | grep '?'"   # cvs ain't bee know'n dee's filez
-alias cvsdown="cvs -qn up 2>/dev/null | grep 'U'"   # dee's filez oh up dah stream
-alias cvsdiff="cvs diff ./ | vim"                   # current dir bee diff'n'color
-
-##
-# for svn
-##
-
-alias svndiff="svn diff | mate"
-alias svnnews="svn status -u | grep /(A|M)/"
-alias svnknow="svn status -u|grep A|grep -v CVS"
-alias svnmiss="svn status -u | grep [\?\!]"
-alias svninfo="svn status | awk '{print \$2}' | xargs svn info | less"
-
-alias rmdsstores="find ./ -type f|grep .DS_Store|xargs rm"
 
 ##
 # for ruby/rails
@@ -77,6 +56,7 @@ alias fl="find . -name \*.rb | xargs flog"
 alias rrg="rake routes | grep $1"
 alias curlx='curl -v -H "X_REQUESTED_WITH: XMLHttpRequest"'
 alias rake='noglob rake'
+alias v="vagrant"
 alias vbox='VBoxManage'
 alias lc='bin/librarian-chef'
 
@@ -97,45 +77,15 @@ alias rgis="gem install $1 --no-ri --no-rdoc"
 alias rgsl="gem search $1 -l"
 alias rgsr="gem search $1 -r"
 
-alias egsl="/usr/local/rubyee/bin/ruby /usr/local/rubyee/bin/gem search $1 -l"
-alias egis="sudo /usr/local/rubyee/bin/ruby /usr/local/rubyee/bin/gem install $1"
-alias egun="sudo /usr/local/rubyee/bin/ruby /usr/local/rubyee/bin/gem uninstall $1"
-alias egup="sudo /usr/local/rubyee/bin/ruby update $1"
-
-alias v="vagrant"
-
-alias lc="librarian-chef"
-
 ##
-# for growl
+# for postgres
 ##
 
-alias myip='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d\  -f2 | growlnotify'
+export __ptf_sql="SELECT table_name, pg_size_pretty(table_size) AS table_size, pg_size_pretty(indexes_size) AS indexes_size, pg_size_pretty(total_size) AS total_size FROM (SELECT table_name, pg_table_size(table_name) AS table_size, pg_indexes_size(table_name) AS indexes_size, pg_total_relation_size(table_name) AS total_size FROM (SELECT ('\"' || table_schema || '\".\"' || table_name || '\"') AS table_name FROM information_schema.tables) AS all_tables ORDER BY total_size DESC) AS pretty_sizes;"
 
-##
-# for pgres
-##
-
-if [ -x /Library/PostgreSQL/8.3/bin/pg_ctl ]; then
-  alias pg_start='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data start'
-  alias pg_stop='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data stop'
-  alias pg_restart='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data restart'
-  alias pg_reload='sudo -u postgres /Library/PostgreSQL/8.3/bin/pg_ctl -D /Library/PostgreSQL/8.3/data reload'
-  alias pg_sizes='echo "SELECT relname, reltuples, relpages * 8 / 1024 AS "MB" FROM pg_class ORDER BY relpages DESC;" | psql $1'
-fi
-
-##
-# for mysql
-##
-
-alias db_time="echo `date \"+%Y%m%d%H%M%S\"`"
-alias dumptj="mysqldump -u root tweety_jobs_development > /Users/justin/Development/db/tweety_jobs_development-`db_time`.sql"
-
-##
-# for elasticsearch
-##
-
-alias es="elasticsearch -f -D es.config=/usr/local/Cellar/elasticsearch/0.19.10/config/elasticsearch.yml &"
+alias pdf="psql postgres -c 'SELECT pg_database.datname, pg_size_pretty(pg_database_size(pg_database.datname)) AS size FROM pg_database;'"
+alias ptf="psql postgres -c '$__ptf_sql'"
+alias pps="psql postgres -c 'SELECT * FROM pg_stat_activity;'"
 
 ##
 # darwin/os x
