@@ -26,13 +26,12 @@ alias ls="ls -GhF"
 alias ll="ls -lGhF"
 alias la="ls -laGhF"
 alias dir="ls -asGhF"
-alias lf="echo '`ls -1 | wc -l` files'; disall"
 alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
 
 alias du="du -hsk"
 alias dis="du -sk ./"
 
-alias dbtime="echo `date \"+%Y%m%d%H%M%S\"`"
+alias dbtime="date \"+%Y%m%d%H%M%S\""
 
 alias pwdcp="pwd | pbcopy"
 alias conns="sudo lsof -i"
@@ -53,13 +52,15 @@ alias tld="tail -f log/development.log"
 alias tlp="tail -f log/production.log"
 alias tlt="tail -f log/test.log"
 alias fl="find . -name \*.rb | xargs flog"
-alias rrg="rake routes | grep $1"
+alias rrg="bin/rake routes | grep $1"
 alias curlx='curl -v -H "X_REQUESTED_WITH: XMLHttpRequest"'
 alias rake='noglob rake'
 alias v="vagrant"
 alias vbox='VBoxManage'
 alias lc='bin/librarian-chef'
-
+alias t="bin/turn"
+alias c="bin/cucumber"
+alias b="bundle"
 alias story='git log --oneline -n 1 | grep -o "\[.*\]" | tr -d "\n" | pbcopy'
 
 ##
