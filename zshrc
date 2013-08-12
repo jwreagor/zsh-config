@@ -5,9 +5,10 @@ bindkey -e
 setopt appendhistory autocd notify extendedglob mark_dirs prompt_subst
 unsetopt auto_name_dirs
 
+source ~/.zsh/functions/homebrew
 source ~/.zsh/env
-source ~/.zsh/aliases
 source ~/.zsh/functions/load
+source ~/.zsh/aliases
 source $ZSH/oh-my-zsh.sh
 
 if [[ -s $HOME/.local-aliases ]]; then
