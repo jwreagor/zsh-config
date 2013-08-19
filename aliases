@@ -61,6 +61,7 @@ alias lc='bin/librarian-chef'
 alias t="bin/turn"
 alias c="bin/cucumber"
 alias b="bundle"
+alias k="bin/knife"
 alias story='git log --oneline -n 1 | grep -o "\[.*\]" | tr -d "\n" | pbcopy'
 
 ##
