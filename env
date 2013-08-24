@@ -18,7 +18,7 @@ fi
 
 FULLNAME="Justin Reagor"
 EMAIL="justinwr@gmail.com"
-SHELL="/bin/zsh"
+SHELL="/usr/local/bin/zsh"
 
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -29,7 +29,7 @@ MANPATH="/usr/local/man:/opt/local/man:$MANPATH"
 
 NODE_BIN="/usr/local/share/npm/bin"
 NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
-PATH="~/bin:/opt/local/bin:$NODE_BIN:$EPATH:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+PATH="/Users/`whoami`/.rbenv/shims:~/bin:/opt/local/bin:$NODE_BIN:$EPATH:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
 
 EDITOR="$EPATH/emacsclient"
 SVN_EDITOR="$EPATH/emacsclient"
