@@ -2,23 +2,7 @@
 # for unix
 ##
 
-alias de="date '+%Y%m%d'"
-
-if [ -x ~/bin/emacs ]; then
-    alias emacs="~/bin/emacs"
-fi
-
-if [ -x ~/Applications/Emacs.app ]; then
-    alias emacs="~/Applications/Emacs.app/Contents/MacOS/Emacs -nw -l ~/.emacs.d/init.el --name '`pwd`'"
-    alias emacsclient="~/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
-fi
-
-if [ -x /Applications/Emacs.app ]; then
-    alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw -l ~/.emacs.d/init.el --name '`pwd`'"
-    alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
-fi
-
-alias e="emacsclient"
+alias ec="emacsclient"
 
 alias l="COLUMNS=12 ls -GFh"
 alias lm="ls -mF"
@@ -31,12 +15,15 @@ alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^
 alias du="du -hsk"
 alias dis="du -sk ./"
 
+alias de="date '+%Y%m%d'"
 alias dbtime="date \"+%Y%m%d%H%M%S\""
 
 alias pwdcp="pwd | pbcopy"
 alias conns="sudo lsof -i"
 alias makejobs="grep '[a-z]+\:' Makefile"
 alias ctags="/usr/local/bin/ctags"
+
+alias mksecure="hdiutil create -agentpass -encryption AES-256 -megabytes 256 -fs HFS+ -volname $1 ~/Desktop/$1"
 
 ##
 # for ruby/rails
