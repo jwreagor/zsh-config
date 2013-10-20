@@ -1,22 +1,25 @@
 [user]
-	name = Justin Reagor
-	email = justinwr@gmail.com
+    name = Justin Reagor
+    email = justinwr@gmail.com
 [color]
-	status = auto
-	diff = auto
-	branch = auto
+    status = auto
+    diff = auto
+    branch = auto
 [alias]
     bd = branch -d
     bf = branch -D
     br = branch -av
     ci = commit
     cl = clone
- 	co = checkout
+    co = checkout
     cp = cherry-pick
     df = diff
     dh = diff HEAD
     ft = fetch
     fo = fetch origin
+    la = log master..HEAD
+    lb = log master..HEAD --oneline
+    lc = log master..HEAD --oneline --stat --graph
     lg = log --stat --graph
     ln = log -p HEAD..FETCH_HEAD
     lo = log --oneline --stat --graph
@@ -32,11 +35,11 @@
     stage = push origin staging
     wipe = reset --hard
 [core]
-	excludesfile = ~/.gitignore
-	editor = emacsclient
+    excludesfile = ~/.gitignore
+    editor = emacsclient
 [apply]
-	whitespace = nowarn
+    whitespace = nowarn
 [github]
-	user = cheapRoc
+    user = cheapRoc
 [status]
         relativePaths = false
