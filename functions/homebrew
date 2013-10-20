@@ -3,5 +3,7 @@
 #
 
 brewpath() {
-    brew info $1 | grep "^\/usr\/local\/Cellar" | tail -1 | cut -f1 -d' '
+    if [ -x `which brew` ]; then
+        brew info $1 | grep "^\/usr\/local\/Cellar" | tail -1 | cut -f1 -d' '
+    fi
 }

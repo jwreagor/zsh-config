@@ -4,21 +4,14 @@
 
 alias de="date '+%Y%m%d'"
 
+if [ -x /usr/local/opt/emacs/bin/emacs ]; then
+   alias emacs="/usr/local/opt/emacs/bin/emacs -nw -l ~/.emacs.d/init.el --name '`pwd`'"
+   alias ec="emacsclient"
+fi    
+
 if [ -x ~/bin/emacs ]; then
     alias emacs="~/bin/emacs"
 fi
-
-if [ -x ~/Applications/Emacs.app ]; then
-    alias emacs="~/Applications/Emacs.app/Contents/MacOS/Emacs -nw -l ~/.emacs.d/init.el --name '`pwd`'"
-    alias emacsclient="~/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
-fi
-
-if [ -x /Applications/Emacs.app ]; then
-    alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw -l ~/.emacs.d/init.el --name '`pwd`'"
-    alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
-fi
-
-alias e="emacsclient"
 
 alias l="COLUMNS=12 ls -GFh"
 alias lm="ls -mF"
