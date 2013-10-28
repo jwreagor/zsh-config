@@ -42,4 +42,6 @@
 [github]
     user = cheapRoc
 [status]
-        relativePaths = false
+    relativePaths = false
+[push]
+    default = upstream
