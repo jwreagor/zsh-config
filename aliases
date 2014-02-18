@@ -20,6 +20,7 @@ alias dbtime="date \"+%Y%m%d%H%M%S\""
 
 alias pwdcp="pwd | pbcopy"
 alias conns="sudo lsof -i"
+alias woman="man"
 alias makejobs="grep '[a-z]+\:' Makefile"
 alias ctags="/usr/local/bin/ctags"
 
@@ -34,6 +35,8 @@ alias re='rbenv exec'
 alias rh='rbenv rehash'
 alias ri='rbenv install'
 alias rl='rbenv install --list'
+
+alias run="ruby -run -e httpd . -p $1"
 
 alias tld="tail -f log/development.log"
 alias tlp="tail -f log/production.log"
