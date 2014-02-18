@@ -31,6 +31,7 @@
     rc = rebase --continue
     ri = rebase -i
     ro = rebase origin/master
+    rw = reset --soft HEAD~1
     st = status
     stage = push origin staging
     wipe = reset --hard
