@@ -27,7 +27,7 @@ alias ctags="/usr/local/bin/ctags"
 alias mksecure="hdiutil create -agentpass -encryption AES-256 -megabytes 256 -fs HFS+ -volname $1 ~/Desktop/$1"
 
 ##
-# for ruby/rails
+# for ruby
 ##
 
 alias rb='rbenv'
@@ -36,11 +36,8 @@ alias rh='rbenv rehash'
 alias ri='rbenv install'
 alias rl='rbenv install --list'
 
-alias run="ruby -run -e httpd . -p $1"
+alias run="ruby -run -e httpd $(pwd) -p $1"
 
-alias tld="tail -f log/development.log"
-alias tlp="tail -f log/production.log"
-alias tlt="tail -f log/test.log"
 alias fl="find . -name \*.rb | xargs flog"
 alias rrg="bin/rake routes | grep $1"
 alias curlx='curl -v -H "X_REQUESTED_WITH: XMLHttpRequest"'
@@ -52,22 +49,17 @@ alias t="bin/turn"
 alias c="bin/cucumber"
 alias b="bundle"
 alias k="bin/knife"
+alias dbag="bin/knife data bag show"
+alias ebag="bin/knife data bag show --secret-file $(pwd)/.chef/data_bag_key"
 alias story='git log --oneline -n 1 | grep -o "\[.*\]" | tr -d "\n" | pbcopy'
+alias cheat="rbenv exec cheat"
 
-##
-# for rubygems
-##
-
-alias gis="sudo gem install $1 --no-ri"
-alias gun="sudo gem uninstall $1"
-alias gup="sudo gem update $1 --no-ri"
 alias gll="gem search -l | sed 's/(.*)\(.*\)/ /' | sed '/./!d' | sed '/^.*LOCAL.*$/d'"
-
-alias rgup="gem update $1 --no-ri --no-rdoc"
-alias rgun="gem uninstall $1"
-alias rgis="gem install $1 --no-ri --no-rdoc"
-alias rgsl="gem search $1 -l"
-alias rgsr="gem search $1 -r"
+alias gup="gem update $1 --no-ri --no-rdoc"
+alias gun="gem uninstall $1"
+alias gis="gem install $1 --no-ri --no-rdoc"
+alias gsl="gem search $1 -l"
+alias gsr="gem search $1 -r"
 
 ##
 # for postgres
@@ -80,7 +72,7 @@ alias ptf="psql postgres -c '$__ptf_sql'"
 alias pps="psql postgres -c 'SELECT * FROM pg_stat_activity;'"
 
 ##
-# darwin/os x
+# for darwin
 ##
 
 alias fdns="dscacheutil -flushcache"
@@ -94,12 +86,8 @@ fi
 
 alias allcron="for user in $(cut -f1 -d: /etc/passwd); do sudo crontab -u $user -l; done"
 
-if [ -x "/usr/local/bin/meteor" ]; then
-    alias me="meteor"
-fi
-
 ##
-# streams
+# one love
 ##
 
 alias groovesalad="mpg123 -Cq http://ice.somafm.com/groovesalad"
@@ -112,7 +100,7 @@ alias christmas="mpg123 -Cq http://ice.somafm.com/christmas"
 alias dronezone="mpg123 -Cq http://ice.somafm.com/dronezone"
 
 ##
-# aws
+# for aws
 ##
 
 #alias ec2vol="ec2-describe-volumes | grep $1 | cut -f3"

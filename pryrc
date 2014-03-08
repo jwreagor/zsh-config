@@ -1,3 +1,5 @@
+require 'pathname'
+
 Pry.config.editor = proc { |file, line| "emacsclient #{file} +#{line}" }
 
 if defined?(Rails) && Rails.env
