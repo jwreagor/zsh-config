@@ -18,6 +18,7 @@ alias dis="du -sk ./"
 alias de="date '+%Y%m%d'"
 alias dbtime="date \"+%Y%m%d%H%M%S\""
 
+alias env="env | sort"
 alias pwdcp="pwd | pbcopy"
 alias conns="sudo lsof -i"
 alias woman="man"
