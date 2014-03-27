@@ -1,5 +1,5 @@
-##
-# for unix
+#
+# for shell
 ##
 
 alias ec="emacsclient"
@@ -55,12 +55,12 @@ alias ebag="bin/knife data bag show --secret-file $(pwd)/.chef/data_bag_key"
 alias story='git log --oneline -n 1 | grep -o "\[.*\]" | tr -d "\n" | pbcopy'
 alias cheat="rbenv exec cheat"
 
-alias gll="gem search -l | sed 's/(.*)\(.*\)/ /' | sed '/./!d' | sed '/^.*LOCAL.*$/d'"
-alias gup="gem update $1 --no-ri --no-rdoc"
-alias gun="gem uninstall $1"
-alias gis="gem install $1 --no-ri --no-rdoc"
-alias gsl="gem search $1 -l"
-alias gsr="gem search $1 -r"
+alias rgll="gem search -l | sed 's/(.*)\(.*\)/ /' | sed '/./!d' | sed '/^.*LOCAL.*$/d'"
+alias rgup="gem update $1 --no-ri --no-rdoc"
+alias rgun="gem uninstall $1"
+alias rgis="gem install $1 --no-ri --no-rdoc"
+alias rgsl="gem search $1 -l"
+alias rgsr="gem search $1 -r"
 
 ##
 # for postgres
