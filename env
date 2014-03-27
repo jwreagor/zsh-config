@@ -23,7 +23,7 @@ MANPATH="/usr/local/man:/opt/local/man:$MANPATH"
 ERLANG_PATH="$(brewpath erlang)"
 NODE_BIN="$(brewpath node)/bin/npm"
 NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules:$HOME/.node_modules"
-PATH="$HOME/.rbenv/shims:$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+PATH=".bin:$HOME/bin:$HOME/.rbenv/shims:/usr/local/bin:/usr/local/sbin:$PATH"
 
 EDITOR="emacsclient"
 SVN_EDITOR="emacsclient"
