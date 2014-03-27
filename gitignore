@@ -13,6 +13,7 @@ build/*
 *.perspectivev3
 *.xcworkspace
 xcuserdata
+.emacs.desktop
 .svn
 .DS_Store
 .bundle

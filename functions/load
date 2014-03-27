@@ -13,4 +13,4 @@ source ${__ZSH_FUNCS}/calc
 source ${__ZSH_FUNCS}/dev
 source ${__ZSH_FUNCS}/osx
 source ${__ZSH_FUNCS}/npm
-#source ${__ZSH_FUNCS}/homebrew
+source ${__ZSH_FUNCS}/cat

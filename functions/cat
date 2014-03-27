@@ -1,0 +1,12 @@
+test_cat() {
+  echo "$argv"
+}
+
+cat() {
+  if [[ -x `which coderay` ]]; then
+    coderay "$@"
+  else
+    cat "$@"
+  fi
+}
+
