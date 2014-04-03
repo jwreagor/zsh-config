@@ -1,5 +1,6 @@
 .DS_Store
 .rvmrc
+.local-aliases
 *.rbc
 .#*
 build/*
