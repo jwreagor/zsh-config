@@ -1,3 +1,5 @@
+# -*-ruby-*-
+
 require 'pathname'
 
 Pry.config.editor = proc { |file, line| "emacsclient #{file} +#{line}" }

@@ -1,15 +1,35 @@
-####################################################
-## this is example configuration file, copy it to ##
-## ~/.ncmpcpp/config and set up your preferences  ##
-####################################################
+mpd_host               = "localhost"
+mpd_port               = "6600"
+#mpd_music_dir          = "~/Music"
+#mpd_connection_timeout = "5"
+#mpd_crossfade_time     = "5"
 
 ncmpcpp_directory  = "~/.ncmpcpp"
 lyrics_directory   = "~/.lyrics"
-mpd_host           = "localhost"
-mpd_port           = "6600"
-mpd_crossfade_time = "5"
 
-startup_screen = "3"
+startup_screen                   = "2"
+# message_delay_time               = "4"
+# playlist_disable_highlight_delay = "5"
+playlist_display_mode            = "columns"
+browser_display_mode             = "columns"
+
+# search_engine_default_search_mode = "1"
+# jump_to_now_playing_song_at_start = "yes"
+#ask_before_clearing_main_playlist = "no"
+# clock_display_seconds             = "yes"
+# display_volume_level              = "yes"
+# display_bitrate                   = "yes"
+# display_remaining_time            = "yes"
+#regular_expressions               = "none"
+
+# visualizer_in_stereo     = "no"
+# visualizer_fifo_path     = "/tmp/mpd.fifo"
+# visualizer_output_name   = "visual"
+# visualizer_sync_interval = "30"
+# visualizer_type          = "wave"
+# visualizer_look          = "◆│"
+
+# song_columns_list_format = "(7f)[green]{l} (25)[cyan]{a} (40)[]{t|f} (30)[red]{b}"
 
 #
 ##### directories ######

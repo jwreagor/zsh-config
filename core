@@ -1,8 +1,9 @@
-##
+# -*-shell-script-*-
+#
 # core functionality
 ##
 
 # loads up all the files within the buffer, for the given path
 loads(path, files) {
-    for file in $files; do source $path/$file; done
+  for file in $files; do source $path/$file; done
 }

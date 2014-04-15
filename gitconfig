@@ -8,7 +8,7 @@
 [alias]
     bd = branch -d
     bf = branch -D
-    br = branch -avl
+    br = branch -avv
     ci = commit
     cl = clone
     co = checkout

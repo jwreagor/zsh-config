@@ -1,3 +1,5 @@
+# -*-ruby-*-
+
 begin
   require "rubygems"
   require "pry"
