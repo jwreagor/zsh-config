@@ -1,3 +1,4 @@
+# -*-shell-script-*-
 #
 # for shell
 ##
@@ -25,7 +26,13 @@ alias woman="man"
 alias makejobs="grep '[a-z]+\:' Makefile"
 alias ctags="/usr/local/bin/ctags"
 
-alias mksecure="hdiutil create -agentpass -encryption AES-256 -megabytes 256 -fs HFS+ -volname $1 ~/Desktop/$1"
+alias mksecure="hdiutil create -agentpass -encryption AES-256 -megabytes ${2:-500} -fs HFS+ -volname ${1:-secure_disk} ~/Desktop/${1:-secure_disk}"
+
+#alias cores="cat /proc/cpuinfo | grep -i processor | wc -l"
+#alias iowaits="#(vmstat | grep [0-9] | awk {\"print \\$16\"})%"
+
+alias cores="system_profiler SPHardwareDataType -detailLevel mini | grep \"Cores\:\" | sed 's/.*Cores\:.//'"
+alias loads="uptime | cut -d \":\" -f 4 | sed 's/^.//'"
 
 ##
 # for ruby
