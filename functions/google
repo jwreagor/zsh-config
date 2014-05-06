@@ -1,0 +1,15 @@
+google_update_off() {
+  __GOO_PATH="/Library/Google/GoogleSoftwareUpdate/GoogleSoftwareUpdate.bundle/Contents/Resources/"
+  __GOO_CMD="CheckForUpdatesNow.command"
+
+  if [ -d /Applications/Chrome.app ]; then
+    echo "Turning Google update off"
+    defaults write com.google.Keystone.Agent checkInterval 0
+    alias gooup="$(__goo_home)$(__goo_cmd)"
+  fi
+}
+
+google_update_on() {
+  echo "Turning Google update on"
+  defaults write com.google.Keystone.Agent checkInterval 1800
+}
