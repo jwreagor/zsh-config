@@ -1,3 +1,5 @@
+# -*-conf-*-
+
 .DS_Store
 .rvmrc
 .local-aliases
@@ -25,4 +27,4 @@ TAGS
 rdoc/
 *.org
 vendor/bundle
-.bin
+.bin/

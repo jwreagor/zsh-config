@@ -1,10 +1,12 @@
+# -*-conf-*-
+
 [user]
     name = Justin Reagor
     email = justinwr@gmail.com
 [color]
-    status = auto
-    diff = auto
     branch = auto
+    diff = auto
+    status = auto
 [alias]
     bd = branch -d
     bf = branch -D
@@ -15,15 +17,15 @@
     cp = cherry-pick
     df = diff
     dh = diff HEAD
-    ft = fetch
     fo = fetch origin
+    ft = fetch
     la = log master..HEAD
     lb = log master..HEAD --oneline
     lc = log master..HEAD --oneline --stat --graph
     lg = log --stat --graph
+    ll = log --oneline --graph
     ln = log -p HEAD..FETCH_HEAD
     lo = log --oneline --stat --graph
-    ll = log --oneline --graph
     pl = pull
     ps = push
     ra = rebase --abort
@@ -36,8 +38,8 @@
     stage = push origin staging
     wipe = reset --hard
 [core]
-    excludesfile = ~/.gitignore
     editor = emacsclient
+    excludesfile = ~/.gitignore
 [apply]
     whitespace = nowarn
 [github]
