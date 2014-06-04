@@ -1,6 +1,6 @@
 # -*-shell-script-*-
 
-plugins=(git osx gem brew bundler cap npm rbenv zsh-syntax-highlighting)
+plugins=(git osx gem brew brew-cask bundler cap npm rbenv capistrano zsh-syntax-highlighting dirpersist)
 
 bindkey -e
 
@@ -18,14 +18,6 @@ if [[ -s $HOME/.local-aliases ]]; then
   source $HOME/.local-aliases
 fi
 
-if [[ -s /usr/local/rvm/scripts/rvm ]]; then
-  source /usr/local/rvm/scripts/rvm
-fi
-
-if [[ -s /Users/$(whoami)/.rvm/scripts/rvm ]]; then
-  source /Users/$(whoami)/.rvm/scripts/rvm
-fi
-
 if [[ -d $HOME/.nix-profile ]]; then
   source $HOME/.nix-profile/etc/profile.d/nix.sh
 fi
@@ -35,3 +27,5 @@ unsetopt correct correctall
 source "`brew --prefix grc`/etc/grc.bashrc"
 
 eval "$(rbenv init -)"
+
+[ -s $HOME/.zdirs ] && cd - 2>/dev/null 1>&2
