@@ -1,0 +1,16 @@
+# -*-shell-script-*-
+
+git-deep () {
+  for dir in $(find -d . -type d); do
+    local back=$(pwd)
+
+    if [ -d $dir/.git/refs/remotes ]; then
+      echo " ${fg_bold[blue]}--->${reset_color} ${fg_bold[white]}Pulling${reset_color} $dir"
+      cd $dir
+      git pull
+      echo " ${fg_bold[blue]}--->${reset_color} ${fg_bold[white]}End${reset_color} $dir"
+      echo
+      cd $back
+    fi
+  done
+}
