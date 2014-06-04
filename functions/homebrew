@@ -1,9 +1,17 @@
-##
-# Returns the installation path of a homebrew package
+# -*-shell-script-*-
+
+#
+# Return the path of a homebrew package
 #
 
-brewpath() {
-    if [ -x `which brew` ]; then
-        brew info $1 | grep "^\/usr\/local\/Cellar" | tail -1 | cut -f1 -d' '
-    fi
+brew-path () {
+  [ -x $(which brew) ] && dirname $(brew list $1 | head -1)
+}
+
+#
+# Find files in a homebrew package
+#
+
+brew-file () {
+  [ -x $(which brew) ] && brew list $1 | grep $2
 }
