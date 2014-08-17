@@ -1,0 +1,23 @@
+# -*-conf-*-
+
+# http://git-scm.com/book/ch7-2.html
+
+# $ echo 'Last commit date: $Format:%cd$' > LAST_COMMIT
+# $ echo "LAST_COMMIT export-subst" >> .gitattributes
+# $ git add LAST_COMMIT .gitattributes
+# $ git commit -am 'adding LAST_COMMIT file for archives'
+
+# When you run git archive, the contents of that file when people open the
+# archive file will look like this:
+
+# $ cat LAST_COMMIT
+# Last commit date: $Format:Tue Apr 21 08:38:48 2009 -0700$
+
+# $ echo '*.png diff=exif' >> .gitattributes
+# $ git config diff.exif.textconv exiftool
+
+*.png diff=exif
+
+*.org export-ignore
+doc/ export-ignore
+docs/ export-ignore
