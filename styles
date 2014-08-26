@@ -1,0 +1,3 @@
+# -*-shell-script-*-
+
+zstyle ':completion:*:options' list-colors '=^(-- *)=34'

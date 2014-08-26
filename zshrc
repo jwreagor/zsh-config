@@ -5,27 +5,19 @@ plugins=(git osx gem brew brew-cask bundler cap npm rbenv capistrano zsh-syntax-
 bindkey -e
 
 setopt appendhistory autocd notify extendedglob mark_dirs prompt_subst
-unsetopt auto_name_dirs
+unsetopt correct correctall auto_name_dirs
 
-source $HOME/.zsh/functions/git-deep
+source $HOME/.zsh/styles
 source $HOME/.zsh/functions/homebrew
 source $HOME/.zsh/env
 source $HOME/.zsh/aliases
 source $ZSH/oh-my-zsh.sh
 #source $HOME/.zsh/functions/autoload
 
-if [[ -s $HOME/.local-aliases ]]; then
-  source $HOME/.local-aliases
-fi
+[ -s $HOME/.local-aliases ] && source $HOME/.local-aliases
+[ -d $HOME/.nix-profile ] && source $HOME/.nix-profile/etc/profile.d/nix.sh
 
-if [[ -d $HOME/.nix-profile ]]; then
-  source $HOME/.nix-profile/etc/profile.d/nix.sh
-fi
-
-unsetopt correct correctall
-
-source "`brew --prefix grc`/etc/grc.bashrc"
-
-eval "$(rbenv init -)"
+if which grc >/dev/null; then source "`brew --prefix grc`/etc/grc.bashrc"; fi
+if which rbenv >/dev/null; then eval "$(rbenv init -)"; fi
 
 [ -s $HOME/.zdirs ] && cd - 2>/dev/null 1>&2
