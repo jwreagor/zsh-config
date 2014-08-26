@@ -1,7 +1,7 @@
-##
+# -*-shell-script-*-
+#
 # returns 0 or >1 if uid is root
-##
-
+#
 has_root_uid() {
     [ $UID -eq 0 ]
 }

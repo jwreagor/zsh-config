@@ -1,3 +1,6 @@
+# echo $((2#10010110))
+Convert decimal string by 2bits
+
 <html>
 <!--
 # vim:ft=zsh:
@@ -9,15 +12,15 @@
 </head>
 <body>
 <h2>Zzappers Best of ZSH Tips</h2>
-<a href="http://www.zzapper.co.uk/">zzappers Tips Home</a> 
+<a href="http://www.zzapper.co.uk/">zzappers Tips Home</a>
 <br><br>
 Updated : 08Nov11 *N* Marks New   *C* Corrected
 <pre>
 > zsh -fx   # start a "clean" version of zsh (without your startup files)
 print $ZSH_VERSION
-<a href="http://www.zzapper.co.uk/">Tips Home</a> 
+<a href="http://www.zzapper.co.uk/">Tips Home</a>
 <a href="http://www.zsh.org/mla/">http://www.zsh.org/mla/</a> Searchable Mailing List Archive
-<a href='http://grml.org/zsh/zsh-lovers.html'>http://grml.org/zsh/zsh-lovers.html</a> 
+<a href='http://grml.org/zsh/zsh-lovers.html'>http://grml.org/zsh/zsh-lovers.html</a>
 <a href='http://zsh.sourceforge.net/Doc/'>http://zsh.sourceforge.net/Doc/</a>  Everything? *C*
 <a href='http://www.scribd.com/doc/6775538/Zsh-Reference-Card'>Zsh-Reference-Card</a> *N*
 <a href='http://zshwiki.org/'>http://zshwiki.org/</a>
@@ -43,7 +46,7 @@ zshall       Meta-man page containing all of the above
 Global aliases
 Searching and filtering my mysql database with my own utility searchdb
 >searchdb client1 | grep -i website1 | fmt -50 | putclip
-How you can simplify this using 3 zsh Global Aliases 
+How you can simplify this using 3 zsh Global Aliases
 >searchdb client1 G website1 F P
 alias -g ND='*(/om[1])' # newest directory
 alias -g NF='*(.om[1])' # newest file
@@ -241,12 +244,12 @@ ls **/fred*~*junk*/* # list all files fred* unless in a junk directory
 # single quotes stop the shell, " quotes allow shell interaction
 grep 'host' **/(*.cfm~(ctpigeonbot|env).cfm)
 grep -i 'host' **/(*.cfm~(ctpigeonbot|env).cfm)~*((#s)|/)junk*/*(.)
-egrep -i "^ *mail\(" **/*.php  
+egrep -i "^ *mail\(" **/*.php
 grep "^ *mail\(" **/*.php~*junk*/*  #find all calls to mail, ignoring junk directories
 # grep '.' dot matches one character
 grep b.g file    # match bag big bog but not boog
 # grep * matches 0 , 1 or many of previous character
-grep "b*g" file # matches g or bg or bbbbg 
+grep "b*g" file # matches g or bg or bbbbg
 # grep '.*' matches a string
 grep "b.*g" file # matches bg bag bhhg bqqqqqg etc
 # grep break character is \
@@ -256,7 +259,7 @@ grep "I am a \(cat\|dog\)" matches lines containing the string "I am a cat" or t
 grep "Fred\(eric\)\? Smith" file   # grep fred or frederic
 # grep back references (memory)
 grep -i "<H\([1-6]\).*</H\1>" *.html # matches pairs of tags
-tel blenkinsop | grep -o "[[:alnum:][:graph:]]*@[[:alnum:][:graph:]]*" # filter just an email address from a text stream (not zsh) *N*  
+tel blenkinsop | grep -o "[[:alnum:][:graph:]]*@[[:alnum:][:graph:]]*" # filter just an email address from a text stream (not zsh) *N*
 # ls
 ls *.h~(fred|foo).h # same thing
 ls (x*~x[3-5])   # list files x* except x3 to x5
@@ -267,10 +270,10 @@ ls fred{joe,sid}.pl
 ls fred{09..13}.pl # range
 ls fred<76-88>.pl# list all files fred76.pl to fred88.pl range
 ls fred<76->.pl  # list all files fred76.pl to fred9999*.pl etc
-ls {_,}fred.php  # list files _fred.php fred.php 
+ls {_,}fred.php  # list files _fred.php fred.php
 ls (_|)fred.php  # same effect by globbing
 ls *.{jpg,gif}(.N) # don't break if one or other image type absent
-# FNG optionally matching a character 
+# FNG optionally matching a character
 ls -l *y{2,}.cfm  #  matches *y.cfm and *y2.cfm *N*
 ls -l *y(2|).cfm  #  matches *y.cfm and *y2.cfm *N*
 ls *{y2,y}.cfm    #  matches *y.cfm and *y2.cfm *N*
@@ -351,7 +354,7 @@ echo ${texfilepath%/*.*}           # echo just the path (strip the file name)
 echo ${file%.*}                    # strip file extension
 echo $file:r                       # strip file extension
 echo ${0##*[!0-9]}                 # strip all but trailing digit from filename $0
-echo ${(M)0%%<->}                  # strip all but trailing digit from filename 
+echo ${(M)0%%<->}                  # strip all but trailing digit from filename
 file=${1/\//C:\/}                  # substitute / with c:/ ANYWHERE in string
 file=${1/#\//C:\/}                 # substitute / with c:/ Beginning of string
 file=${1/%\//C:\/}                 # substitute / with c:/ End of string
@@ -378,7 +381,7 @@ PROGNAME=`basename $0`
 url=`cat /dev/clipboard`
 if [ "$PROGNAME" = "href" ] ; then
 href="<a href='$url'>$url</a>"
-elif [ "$PROGNAME" = "hrefs" ] ; then 
+elif [ "$PROGNAME" = "hrefs" ] ; then
 anchortext=${${(C)url//[_-]/ }:t}
 href="<a href='$url'>$anchortext</a>"
 fi
@@ -416,7 +419,7 @@ cd ${drive}/inetpub/wwwdev/www.some.co.uk/
 drive=${${${LOGNAME:#davidr}:+/o}:-/c}                        # zsh way
 cd ${drive}/inetpub/wwwdev/www.some.co.uk/
 
-# chaining two modifications 
+# chaining two modifications
 # .om[1] gives newest file
 # cyg is a zsh function doing a path conversion
 gvim.exe $(echo /c/aax/*(.om[1]))(+cyg) &  ### nested
@@ -449,9 +452,9 @@ alias -g G='| grep -'
 alias -g L='| less'
 #this reduces a command like
 ls | grep foo | less
-#to 
+#to
 ls G foo L
-# 
+#
 alias -g R=' > /c/aaa/tee.txt '           # redirect
 alias -g T=' | tee /c/aaa/tee.txt '       # tee
 alias -g F=' | fmt -'                     # format
@@ -503,10 +506,10 @@ $ zmv '(*)' '${(U)1}' # uppercase
 #Wonderful zftp (write ftp scripts as though shell)
 
 # init (could be in .zshenv etc)
-autoload -U zfinit  
-zfinit  
+autoload -U zfinit
+zfinit
 zfparams www.someweb.co.uk myuserid mypassword
-zfopen 
+zfopen
 zfcd tips
 zfls -l zshtips.html
 zfput zshtips.html
@@ -552,8 +555,8 @@ bindkey -v # vi mode line editting
 bindkey -M viins '^O' copy-prev-shell-word
 bindkey '^L' push-line # push current command into a buffer, allows you to do another command then returns to previous command
 # configure F7 to output a command
-bindkey -s '^v<F7>' "ls -l\n" # configure F7 to output 'ls -l' 
-bindkey -s "^[[18~" "ls -l\n" # You must actually type Control-v F7 this is what it looks like on my system : 
+bindkey -s '^v<F7>' "ls -l\n" # configure F7 to output 'ls -l'
+bindkey -s "^[[18~" "ls -l\n" # You must actually type Control-v F7 this is what it looks like on my system :
 
 <hr width=80%>
 # Prompt at end of command line
@@ -611,7 +614,7 @@ ls (x*~x[3-5])    # list files x* except x3 to x5
 ls **/*~*/.git/*  # ignore all git subdirectories *~* matches a path *N*
 <hr width=80%>
 # zsh menu
-echo "enter 0-2,a" 
+echo "enter 0-2,a"
 read ans ; # read in a parameter
 case "$ans" in
  0|${prog}0) cd "$(cat /c/aam/${prog}0)" ;;
@@ -621,7 +624,7 @@ case "$ans" in
  **) echo "wrong number $ans\n" ;;
 esac
 <hr width=80%>
- 
+
 Sources newsgroup gmane.comp.shells.zsh.user, masterzen
 
 Everything here is <b>Simple</b> zsh visit the above newsgroup for the <b>Sick</b> stuff

@@ -4,6 +4,7 @@
 ##
 
 alias ec="emacsclient"
+alias e="emacsclient -n"
 
 alias l="COLUMNS=12 ls -GFh"
 alias lm="ls -mF"
@@ -13,23 +14,27 @@ alias la="ls -laGhF"
 alias dir="ls -asGhF"
 alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
 
-alias du="du -hsk"
-alias dis="du -sk ./"
-
+alias duh="du -hs"
+alias duk="du -sk"
+alias dum="du -sm"
+alias dug="du -sg"
 alias de="date '+%Y%m%d'"
 alias dbtime="date \"+%Y%m%d%H%M%S\""
 
 alias env="env | sort"
+alias eng="env | grep $1"
+alias plp="print -l ${path}"
+
 alias pwdcp="pwd | pbcopy"
 alias conns="sudo lsof -i"
 alias woman="man"
-alias makejobs="grep '[a-z]+\:' Makefile"
+alias makejobs="grep -e '^([a-z_]+)\:' Makefile"
 alias ctags="/usr/local/bin/ctags"
 
 alias mksecure="hdiutil create -agentpass -encryption AES-256 -megabytes ${2:-500} -fs HFS+ -volname ${1:-secure_disk} ~/Desktop/${1:-secure_disk}"
 
-#alias cores="cat /proc/cpuinfo | grep -i processor | wc -l"
-#alias iowaits="#(vmstat | grep [0-9] | awk {\"print \\$16\"})%"
+alias cores="cat /proc/cpuinfo | grep -i processor | wc -l"
+alias iowaits="#(vmstat | grep [0-9] | awk {\"print \\$16\"})%"
 
 alias cores="system_profiler SPHardwareDataType -detailLevel mini | grep \"Cores\:\" | sed 's/.*Cores\:.//'"
 alias loads="uptime | cut -d \":\" -f 4 | sed 's/^.//'"
@@ -47,20 +52,19 @@ alias rl='rbenv install --list'
 alias run="ruby -run -e httpd $(pwd) -p $1"
 
 alias fl="find . -name \*.rb | xargs flog"
-alias rrg="bin/rake routes | grep $1"
+alias rrg="rake routes | grep $1"
 alias curlx='curl -v -H "X_REQUESTED_WITH: XMLHttpRequest"'
 alias rake='noglob rake'
 alias v="vagrant"
 alias vbox='VBoxManage'
-alias lc='bin/librarian-chef'
-alias t="bin/turn"
-alias c="bin/cucumber"
+alias lc='librarian-chef'
+alias t="ruby -Ilib:test"
+alias c="cucumber"
 alias b="bundle"
-alias k="bin/knife"
-alias dbag="bin/knife data bag show"
-alias ebag="bin/knife data bag show --secret-file $(pwd)/.chef/data_bag_key"
+alias k="knife"
+alias dbag="knife data bag show"
+alias ebag="knife data bag show --secret-file $(pwd)/.chef/data_bag_key"
 alias story='git log --oneline -n 1 | grep -o "\[.*\]" | tr -d "\n" | pbcopy'
-alias cheat="rbenv exec cheat"
 
 alias rgll="gem search -l | sed 's/(.*)\(.*\)/ /' | sed '/./!d' | sed '/^.*LOCAL.*$/d'"
 alias rgup="gem update $1 --no-ri --no-rdoc"

@@ -1,6 +1,9 @@
+# -*-shell-script-*-
+
 #
-# Creates a blank slate branch, empty and ready for anything. (TWSS)
+# Create a "blank slate" branch by emptying out the working directory
 #
+
 git_slate() {
   git symbolic-ref HEAD refs/heads/$1
   git rm -r --cached .

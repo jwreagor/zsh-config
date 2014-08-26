@@ -1,3 +1,5 @@
+# -*-shell-script-*-
+
 google_update_off() {
   __GOO_PATH="/Library/Google/GoogleSoftwareUpdate/GoogleSoftwareUpdate.bundle/Contents/Resources/"
   __GOO_CMD="CheckForUpdatesNow.command"

@@ -4,12 +4,10 @@
     name = Justin Reagor
     email = justinwr@gmail.com
 [color]
-    branch = auto
-    diff = auto
-    status = auto
+    ui = auto
 [alias]
-    bd = branch -d
     bf = branch -D
+    bm = branch -d
     br = branch -avv
     ci = commit
     cl = clone
@@ -37,9 +35,10 @@
     st = status
     stage = push origin staging
     wipe = reset --hard
+    pocket = clone --bare
+    undo = reset HEAD
 [core]
-    editor = emacsclient
-    excludesfile = ~/.gitignore
+    editor = e
 [apply]
     whitespace = nowarn
 [github]
@@ -48,3 +47,5 @@
     relativePaths = false
 [push]
     default = upstream
+[diff "exif"]
+    textconv = exiftool
