@@ -36,6 +36,7 @@
     stage = push origin staging
     wipe = reset --hard
     pocket = clone --bare
+    undo = reset HEAD
 [core]
     editor = e
 [apply]
@@ -47,4 +48,4 @@
 [push]
     default = upstream
 [diff "exif"]
-	textconv = exiftool
+    textconv = exiftool
