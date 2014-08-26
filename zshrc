@@ -22,7 +22,7 @@ unalias berks
 [ -s $HOME/.local-aliases ] && source $HOME/.local-aliases
 [ -d $HOME/.nix-profile ]   && source $HOME/.nix-profile/etc/profile.d/nix.sh
 
-if which grc >/dev/null; && source "`brew --prefix grc`/etc/grc.bashrc"; fi
+if which grc >/dev/null; then source "`brew --prefix grc`/etc/grc.bashrc"; fi
 if which rbenv >/dev/null; then eval "$(rbenv init -)"; fi
 
 [ -s $HOME/.zdirs ] && cd - >/dev/null
