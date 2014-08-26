@@ -13,3 +13,10 @@ ln -s $HOME/.zsh/ccl-init.lisp $HOME/.ccl-init.lisp
 ln -s $HOME/.zsh/ackrc $HOME/.ackrc
 ln -s $HOME/.zsh/mpd $HOME/.mpd
 ln -s $HOME/.zsh/ncmpcpp $HOME/.ncmpcpp
+
+brew tap caskroom/cask
+brew tap caskroom/fonts
+brew cask install launchcontrol
+
+# Settings > Keyboard > Shortcuts > Override Paste with "Paste and Match Style"
+# Settings > Keyboard > Shortcuts > All controls
