@@ -1,0 +1,31 @@
+# -*-shell-script-*-
+
+squeeze() {
+  sed -E 's/^[ \t]+//' | sed -E 's/[ \t]+$//'
+}
+
+calc() {
+  echo $* | bc -l
+}
+
+16sha() {
+  for f in $*; do
+    if [ -s $f ]; then
+      local sha="$(shasum -p $f 2>/dev/null | cut -c 1-8 | squeeze)"
+      if [ "$?" = "0" ] && [ -n "$sha" ]; then
+        echo "$val\t$f"
+      fi
+    fi
+  done
+}
+
+jsonlsd() {
+  for dep in json_pp coderay less; do
+    if [ -x "$(which $dep)" ]; then
+      echo "Can't locate dependency \"$dep\""
+      return 666
+    fi
+  done
+
+  read | json_pp | coderay -js | less
+}

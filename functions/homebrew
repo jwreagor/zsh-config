@@ -4,8 +4,12 @@
 # Return the path of a homebrew package
 #
 
-brew-path () {
+brew-path() {
   [ -x $(which brew) ] && dirname $(brew list $1 | head -1)
+}
+
+brew-true() {
+  brew which $pkg &>2
 }
 
 #

@@ -1,6 +1,7 @@
-##
+# -*-shell-script-*-
+#
 # backwards removal tcsh-style
-##
+#
 
 tcsh-backward-word() {
     WORDCHARS="${WORDCHARS:s#/#}"

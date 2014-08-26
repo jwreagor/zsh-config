@@ -1,16 +1,26 @@
 # -*-shell-script-*-
 
-git-deep () {
-  for dir in $(find -d . -type d); do
-    local back=$(pwd)
+# git-deep () {
+#   local log=" ${fg_bold[blue]}--->${reset_color} ${fg_bold[white]}$part${reset_color} $dir"
 
-    if [ -d $dir/.git/refs/remotes ]; then
-      echo " ${fg_bold[blue]}--->${reset_color} ${fg_bold[white]}Pulling${reset_color} $dir"
-      cd $dir
-      git pull
-      echo " ${fg_bold[blue]}--->${reset_color} ${fg_bold[white]}End${reset_color} $dir"
-      echo
-      cd $back
-    fi
-  done
-}
+#   for dir in $(find -d . -type d); do
+#     local back=$(pwd)
+
+#     if echo $dir | grep -q "\.git$"; then
+#       local cmd="fetch"
+#     else
+#       local cmd="pull"
+#     fi
+
+#     if [ -d $dir/.git/refs/remotes ]; then
+#       local part="Pulling"
+#       echo $log
+#       cd $dir
+#       git $cmd
+#       local part="Leaving"
+#       echo $log
+#       echo
+#       cd $back
+#     fi
+#   done
+# }
