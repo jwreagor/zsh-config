@@ -1,8 +1,9 @@
 # -*-ruby-*-
 
+require 'pry-byebug' rescue puts "No pry-byebug"
 require 'pathname'
 
-Pry.config.editor = proc { |file, line| "emacsclient #{file} +#{line}" }
+Pry.config.editor = proc { |file, line| "emacsclient -N #{file} +#{line}" }
 
 if defined?(Rails) && Rails.env
   require 'logger'
