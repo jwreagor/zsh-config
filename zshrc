@@ -1,31 +1,28 @@
 # -*-shell-script-*-
 
-plugins=(git osx gem brew brew-cask bundler cap npm rbenv capistrano zsh-syntax-highlighting dirpersist)
+plugins=(git osx gem brew brew-cask bundler cap npm rbenv capistrano \
+  zsh-syntax-highlighting dirpersist)
 
 bindkey -e
 
-setopt appendhistory autocd notify extendedglob mark_dirs prompt_subst
-unsetopt auto_name_dirs
+setopt aliases appendhistory autocd automenu completealiases extendedglob \
+  globcomplete markdirs notify promptsubst recexact shwordsplit
 
-source $HOME/.zsh/functions/git-deep
+unsetopt correct correctall auto_name_dirs
+
+source $HOME/.zsh/functions/utils
 source $HOME/.zsh/functions/homebrew
 source $HOME/.zsh/env
 source $HOME/.zsh/aliases
 source $ZSH/oh-my-zsh.sh
-#source $HOME/.zsh/functions/autoload
 
-if [[ -s $HOME/.local-aliases ]]; then
-  source $HOME/.local-aliases
-fi
+unalias berks
 
-if [[ -d $HOME/.nix-profile ]]; then
-  source $HOME/.nix-profile/etc/profile.d/nix.sh
-fi
-
-unsetopt correct correctall
+[ -s $HOME/.local-aliases ] && source $HOME/.local-aliases
+[ -d $HOME/.nix-profile ]   && source $HOME/.nix-profile/etc/profile.d/nix.sh
 
 source "`brew --prefix grc`/etc/grc.bashrc"
 
-eval "$(rbenv init -)"
+eval "$(rbenv init -)" 1>&2
 
 [ -s $HOME/.zdirs ] && cd - 2>/dev/null 1>&2
