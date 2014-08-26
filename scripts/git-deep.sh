@@ -1,25 +1,38 @@
 #!/usr/bin/env zsh
 
-ver=0.2.0
-prg="${fg_bold[blue]}$(basename $0)${reset_color}"
+autoload colors && colors
+
+_nfo_="traverse down nested directories and pull/fetch all the git repos found"
+_ver_="v0.3.0"
+_prg_="%{$fg_bold[blue]%}$(basename $0)%{$reset_color%}"
+_cpy_="$_ver_ -- (c) 2014 Copyright, Justin Reagor <cheapRoc> BSD"
+_dry_=0
+
 let num=0
 
 log_op() {
-  echo "${fg_bold[blue]} --->${reset_color} ${fg_bold[white]}$1${reset_color} $2"
+  print -P "%{$fg_bold[blue]%} --->%{$reset_color%} %{$fg_bold[white]%}$1%{$reset_color%} $2"
+}
+
+log_grey() {
+  print -P "%{$fg_bold[blue]%} --->%{$reset_color%} %{$fg_no_bold[white]%}$(basename $1)%{$reset_color%} $2"
+}
+
+log_opt() {
+  cmds="%{$fg_bold[blue]%}$1%{$reset_color%}, %{$fg_bold[grey]%}$2\t%{$reset_color%}"
+  print -P "$cmds\t%{$fg_no_bold[white]%}$3%{$reset_color%}"
 }
 
 log_prg() {
-  echo "$prg $1"
+  print -P "$_prg_ $1"
 }
 
 update_fetch() {
-  log_op "Fetching"
-  git_cmd "fetch"
+  [ $_dry_ -ne "0" ] || git_cmd "fetch"
 }
 
 update_pull() {
-  log_op "Pulling"
-  git_cmd "pull"
+  [ $_dry_ -ne "0" ] || git_cmd "pull"
 }
 
 git_cmd() {
@@ -40,12 +53,14 @@ do_dir() {
   back=$(pwd)
 
   if echo $1 | grep -q "\.git$"; then
+    log_op "Fetching" $(basename $1)
     update_fetch
   else
+    log_op "Pulling" $(basename $1)
     update_pull
   fi
 
-  log_op "Leaving" $1
+  [ -z $DEBUG ] || log_op "Leaving" $1
   echo
   cd $back
 }
@@ -53,21 +68,34 @@ do_dir() {
 do_update() {
   for dir in $(deep_dirs); do
     name=$(echo $dir | sed "s/^\(\.\/\)//")
-    log_op "Found" $dir
-    [ -z $1 ] && do_dir $dir
+    do_dir $dir
+    log_grey "Done" $dir
     num=$num+1
+    echo
   done
   echo "Updated $num"
+}
+
+do_dry_run() {
+  _dry_=1
+  do_update
+}
+
+do_help() {
+  log_prg $_cpy_
+  print -P "%{$fg_no_bold[white]%}$_nfo_%{$reset_color%}"
+  echo
+  log_opt "-v" "--version" "List version information"
+  log_opt "-h" "--help"    "List commands and information"
+  log_opt "-l" "--list"    "Find and list all git directories"
+  log_opt "-d" "--dry-run" "Don't perform any actions on found git repos"
+  log_opt "-u" "--update"  "Iterate over every nested repo and fetch/update each"
 }
 
 for arg in $*; do
   case $arg in
     -v|--version)
-      log_prg "${fg_bold[white]}v$ver${reset_color}"
-      ;;
-    -h|--help)
-      echo "traverse nested directories and update all the git repos"
-      log_prg "-- (c) 2014 Copyright, Justin Reagor <cheapRoc> BSD"
+      log_prg "%{$fg_no_bold[white]%}$_ver_%{$reset_color%}"
       ;;
     -l|--list)
       for dir in $(deep_dirs); do
@@ -75,10 +103,13 @@ for arg in $*; do
       done
       ;;
     -d|--dry-run)
-      do_update "dry"
+      do_dry_run
       ;;
     -u|--update)
       do_update
+      ;;
+    -h|--help)
+      do_help
       ;;
   esac
   unset num
