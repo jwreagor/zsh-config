@@ -1,21 +1,25 @@
 # -*-shell-script-*-
 
 #
-# Return the path of a homebrew package
+# Return the path for a homebrew package
 #
 
 brew-path() {
-  [ -x $(which brew) ] && dirname $(brew list $1 | head -1)
-}
-
-brew-true() {
-  brew which $pkg &>2
+  [ -x $(whence brew) ] && dirname $(brew list $1 | head -1)
 }
 
 #
-# Find files in a homebrew package
+# Test for an installed homebrew package
+#
+
+brew-true() {
+  [ -x $(whence brew &>/dev/null) ] && brew --prefix $1 &>/dev/null
+}
+
+#
+# Grep for files of a homebrew package
 #
 
 brew-file () {
-  [ -x $(which brew) ] && brew list $1 | grep $2
+  [ -x $(whence brew) ] && brew list $1 | grep $2
 }

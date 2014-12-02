@@ -3,6 +3,17 @@
 # development workflow functs
 #
 
+_load_lots_of_stuff() {
+  # if `brew ls chruby &>/dev/null`; then
+  #   source /usr/local/share/chruby/chruby.sh
+  #   source /usr/local/share/chruby/auto.sh
+  # else
+  #   if `brew ls rbenv &>/dev/null`; then
+  #     eval "$(rbenv init -)";
+  #   fi
+  # fi
+}
+
 # list pids for unicorn master processes
 umm () {
     ps ax | grep "unicorn.*master.*\-p.${1}" | cut -d ' ' -f 1
