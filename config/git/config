@@ -38,7 +38,7 @@
     pocket = clone --bare
     undo = reset HEAD
 [core]
-    editor = e
+    editor = emacsclient
 [apply]
     whitespace = nowarn
 [github]
