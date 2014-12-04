@@ -19,19 +19,16 @@ alias duk="du -sk"
 alias dum="du -sm"
 alias dug="du -sg"
 alias de="date '+%Y%m%d'"
-alias dbtime="date \"+%Y%m%d%H%M%S\""
+alias -g dbtime="date \"+%Y%m%d%H%M%S\""
 
 alias env="env | sort"
 alias eng="env | grep $1"
-alias plp="print -l ${path}"
 
 alias pwdcp="pwd | pbcopy"
 alias conns="sudo lsof -i"
 alias woman="man"
 alias makejobs="grep -e '^([a-z_]+)\:' Makefile"
 alias ctags="/usr/local/bin/ctags"
-
-alias mksecure="hdiutil create -agentpass -encryption AES-256 -megabytes ${2:-500} -fs HFS+ -volname ${1:-secure_disk} ~/Desktop/${1:-secure_disk}"
 
 alias cores="cat /proc/cpuinfo | grep -i processor | wc -l"
 alias iowaits="#(vmstat | grep [0-9] | awk {\"print \\$16\"})%"
@@ -53,8 +50,7 @@ alias run="ruby -run -e httpd $(pwd) -p $1"
 
 alias fl="find . -name \*.rb | xargs flog"
 alias rrg="rake routes | grep $1"
-alias curlx='curl -v -H "X_REQUESTED_WITH: XMLHttpRequest"'
-alias rake='noglob rake'
+#alias rake='noglob rake'
 alias v="vagrant"
 alias vbox='VBoxManage'
 alias lc='librarian-chef'
@@ -77,7 +73,7 @@ alias rgsr="gem search $1 -r"
 # for postgres
 ##
 
-export __ptf_sql="SELECT table_name, pg_size_pretty(table_size) AS table_size, pg_size_pretty(indexes_size) AS indexes_size, pg_size_pretty(total_size) AS total_size FROM (SELECT table_name, pg_table_size(table_name) AS table_size, pg_indexes_size(table_name) AS indexes_size, pg_total_relation_size(table_name) AS total_size FROM (SELECT ('\"' || table_schema || '\".\"' || table_name || '\"') AS table_name FROM information_schema.tables) AS all_tables ORDER BY total_size DESC) AS pretty_sizes;"
+__ptf_sql="SELECT table_name, pg_size_pretty(table_size) AS table_size, pg_size_pretty(indexes_size) AS indexes_size, pg_size_pretty(total_size) AS total_size FROM (SELECT table_name, pg_table_size(table_name) AS table_size, pg_indexes_size(table_name) AS indexes_size, pg_total_relation_size(table_name) AS total_size FROM (SELECT ('\"' || table_schema || '\".\"' || table_name || '\"') AS table_name FROM information_schema.tables) AS all_tables ORDER BY total_size DESC) AS pretty_sizes;"
 
 alias pdf="psql postgres -c 'SELECT pg_database.datname, pg_size_pretty(pg_database_size(pg_database.datname)) AS size FROM pg_database;'"
 alias ptf="psql postgres -c '$__ptf_sql'"
@@ -97,6 +93,7 @@ elif [ $platform = "linux" ]; then
 fi
 
 alias allcron="for user in $(cut -f1 -d: /etc/passwd); do sudo crontab -u $user -l; done"
+alias osx_lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 ##
 # one love
@@ -122,3 +119,4 @@ alias dronezone="mpg123 -Cq http://ice.somafm.com/dronezone"
 ##
 
 alias get="curl -O"
+alias curlx='curl -v -H "X_REQUESTED_WITH: XMLHttpRequest"'
