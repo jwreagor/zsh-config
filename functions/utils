@@ -1,5 +1,14 @@
 # -*-shell-script-*-
 
+pretty_paths() {
+  echo "$fg_bold[white]\n\$path$reset_color:$fg_no_bold[blue]"
+  print -l $path
+  echo "$reset_color"
+  echo "$fg_bold[white]\n\$PATH$reset_color:$fg_no_bold[white]"
+  print -l $PATH
+  echo "$reset_color"
+}
+
 squeeze() {
   sed -E 's/^[ \t]+//' | sed -E 's/[ \t]+$//'
 }
@@ -20,12 +29,5 @@ calc() {
 }
 
 jsonlsd() {
-  for dep in json_pp coderay less; do
-    if [ -x "$(which $dep)" ]; then
-      echo "Can't locate dependency \"$dep\""
-      return 666
-    fi
-  done
-
   read | json_pp | coderay -js | less
 }

@@ -1,7 +1,4 @@
 # -*-shell-script-*-
-#
-# for shell
-##
 
 alias ec="emacsclient"
 alias e="emacsclient -n"
@@ -12,7 +9,7 @@ alias ls="ls -GhF"
 alias ll="ls -lGhF"
 alias la="ls -laGhF"
 alias dir="ls -asGhF"
-alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
+alias tree="ls -R | grep -e ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
 
 alias duh="du -hs"
 alias duk="du -sk"
@@ -20,9 +17,12 @@ alias dum="du -sm"
 alias dug="du -sg"
 alias de="date '+%Y%m%d'"
 alias -g dbtime="date \"+%Y%m%d%H%M%S\""
+alias dbdate="date '+%Y%m%d'"
 
 alias env="env | sort"
 alias eng="env | grep $1"
+alias plp="noglob print -l ${path}"
+alias rand="echo $RANDOM"
 
 alias pwdcp="pwd | pbcopy"
 alias conns="sudo lsof -i"
@@ -35,6 +35,9 @@ alias iowaits="#(vmstat | grep [0-9] | awk {\"print \\$16\"})%"
 
 alias cores="system_profiler SPHardwareDataType -detailLevel mini | grep \"Cores\:\" | sed 's/.*Cores\:.//'"
 alias loads="uptime | cut -d \":\" -f 4 | sed 's/^.//'"
+
+alias boot="boot2docker"
+alias dock="docker"
 
 ##
 # for ruby
@@ -51,12 +54,14 @@ alias run="ruby -run -e httpd $(pwd) -p $1"
 alias fl="find . -name \*.rb | xargs flog"
 alias rrg="rake routes | grep $1"
 #alias rake='noglob rake'
+alias bd="boot2docker"
 alias v="vagrant"
 alias vbox='VBoxManage'
 alias lc='librarian-chef'
 alias t="ruby -Ilib:test"
 alias c="cucumber"
 alias b="bundle"
+alias bib="bundle install --binstubs .bin --path .bundle"
 alias k="knife"
 alias dbag="knife data bag show"
 alias ebag="knife data bag show --secret-file $(pwd)/.chef/data_bag_key"
