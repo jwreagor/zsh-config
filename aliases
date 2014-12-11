@@ -3,11 +3,12 @@
 alias ec="emacsclient"
 alias e="emacsclient -n"
 
-alias l="COLUMNS=12 ls -GFh"
+alias ls="ls -GF"
+alias l="COLUMNS=12 ls"
+alias ll="ls -l"
 alias lm="ls -mF"
-alias ls="ls -GhF"
-alias ll="ls -lGhF"
 alias la="ls -laGhF"
+alias lr="ls -lGhr"
 alias dir="ls -asGhF"
 alias tree="ls -R | grep -e ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
 
