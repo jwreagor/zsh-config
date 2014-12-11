@@ -1,5 +1,16 @@
 # -*-shell-script-*-
 
+reload() {
+  autoload -U compinit zrecompile
+  compinit -d "$ZSH_CACHE/zcomp-$HOST"
+
+  for f in ~/.zshrc "$ZSH_CACHE/zcomp-$HOST"; do
+    zrecompile -p $f && command rm -f $f.zwc.old
+  done
+
+  source ~/.zshrc
+}
+
 pretty_paths() {
   echo "$fg_bold[white]\n\$path$reset_color:$fg_no_bold[blue]"
   print -l $path
