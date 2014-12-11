@@ -24,6 +24,7 @@
 .rvmrc
 .sass-cache
 .svn
+.envrc
 .rbenv-vars
 .ruby-version
 CVS
