@@ -2,7 +2,7 @@
 
 bindkey -e
 
-setopt aliases appendhistory autocd automenu completealiases \
+setopt aliases appendhistory autocd automenu completealiases completeinword \
   extendedglob globcomplete histignoredups histignorespace markdirs \
   notify promptsubst recexact shwordsplit
 
@@ -16,8 +16,10 @@ source $HOME/.zsh/styles
 source $HOME/.zsh/functions/utils
 source $HOME/.zsh/functions/homebrew
 source $HOME/.zsh/env
-source $HOME/.zsh/aliases
 source $ZSH/oh-my-zsh.sh
+source $HOME/.zsh/aliases
+
+eval "$(direnv hook zsh)"
 
 [ -s $HOME/.local-aliases ] && source $HOME/.local-aliases
 [ -d $HOME/.nix-profile ]   && source $HOME/.nix-profile/etc/profile.d/nix.sh
