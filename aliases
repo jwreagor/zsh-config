@@ -1,7 +1,7 @@
 # -*-shell-script-*-
 
 alias ec="emacsclient"
-alias e="emacsclient -n"
+alias ee="emacsclient -n"
 
 alias ls="ls -GF"
 alias l="COLUMNS=12 ls"
@@ -22,6 +22,7 @@ alias dbdate="date '+%Y%m%d'"
 
 alias env="env | sort"
 alias eng="env | grep $1"
+alias psg="ps aux | grep $1"
 alias plp="noglob print -l ${path}"
 alias rand="echo $RANDOM"
 
@@ -60,7 +61,7 @@ alias v="vagrant"
 alias vbox='VBoxManage'
 alias lc='librarian-chef'
 alias t="ruby -Ilib:test"
-alias c="cucumber"
+alias cu="cucumber"
 alias b="bundle"
 alias bib="bundle install --binstubs .bin --path .bundle"
 alias k="knife"
@@ -90,7 +91,6 @@ alias pps="psql postgres -c 'SELECT * FROM pg_stat_activity;'"
 ##
 
 alias fdns="dscacheutil -flushcache"
-alias psg="ps aux | grep $1"
 
 if [ $platform = "osx" ]; then
   alias psm="ps auxm | head"
