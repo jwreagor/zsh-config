@@ -14,5 +14,6 @@ source ${__ZSH_FUNCS}/bword
 source ${__ZSH_FUNCS}/calc
 source ${__ZSH_FUNCS}/dev
 source ${__ZSH_FUNCS}/osx
+source ${__ZSH_FUNCS}/network
 source ${__ZSH_FUNCS}/npm
 source ${__ZSH_FUNCS}/cat

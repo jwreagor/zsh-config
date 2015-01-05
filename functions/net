@@ -1,25 +1,24 @@
 # -*-shell-script-*-
 
-#        ether 3c:15:c2:ce:23:fe
-
-#
-
-rand_macaddr () {
+rand_macaddr() {
   openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//'
 }
 
-macaddr () {
+macaddr() {
   ifconfig $1 | grep ether | sed -e "s/\\(\\([a-f0-9]\\{2\\}\\):\\)\\{5\\}/\1/"
 }
 
-new_macaddr () {
+new_macaddr() {
   macaddr
   sudo ifconfig $1 ether "$(rand_macaddr)"
   ifconfig en0
 }
 
-clear_dnscache () {
+clear_dnscache() {
   echo "Resettings DNS cache..."
   sudo killall -HUP mDNSResponder
 }
 
+ipaddr() {
+  print ${${$(ifconfig en0)[14]}:gs/\://}
+}
