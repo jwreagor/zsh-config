@@ -6,7 +6,7 @@
 [color]
     ui = auto
 [alias]
-    bf = branch -D
+    bd = branch -D
     bm = branch -d
     br = branch -avv
     ci = commit
@@ -17,14 +17,17 @@
     dh = diff HEAD
     fo = fetch origin
     ft = fetch
+    in = submodule init
     la = log master..HEAD
     lb = log master..HEAD --oneline
     lc = log master..HEAD --oneline --stat --graph
+    ld = log -p HEAD..FETCH_HEAD
     lg = log --stat --graph
     ll = log --oneline --graph
-    ln = log -p HEAD..FETCH_HEAD
+    ln = log
     lo = log --oneline --stat --graph
     pl = pull
+    pocket = clone --bare
     ps = push
     ra = rebase --abort
     rb = rebase
@@ -32,11 +35,12 @@
     ri = rebase -i
     ro = rebase origin/master
     rw = reset --soft HEAD~1
+    shove = push origin master
+    ss = status --short
     st = status
-    stage = push origin staging
-    wipe = reset --hard
-    pocket = clone --bare
     undo = reset HEAD
+    up = submodule update
+    wipe = reset --hard
 [core]
     editor = emacsclient
 [apply]
