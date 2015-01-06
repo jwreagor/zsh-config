@@ -13,8 +13,7 @@ plugins=(brew brew-cask chruby dirpersist
          gem git npm osx zsh-syntax-highlighting)
 
 source $HOME/.zsh/styles
-source $HOME/.zsh/functions/utils
-source $HOME/.zsh/functions/homebrew
+source $HOME/.zsh/functions/load
 source $HOME/.zsh/env
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh/aliases
