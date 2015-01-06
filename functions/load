@@ -7,10 +7,8 @@
 export __ZSH_FUNCS=${HOME}/.zsh/functions
 
 source ${__ZSH_FUNCS}/conditions
-source ${__ZSH_FUNCS}/zcacheinit
-source ${__ZSH_FUNCS}/git
-source ${__ZSH_FUNCS}/textmate
-source ${__ZSH_FUNCS}/bword
+#source ${__ZSH_FUNCS}/zcacheinit
+#source ${__ZSH_FUNCS}/git
 source ${__ZSH_FUNCS}/calc
 source ${__ZSH_FUNCS}/dev
 source ${__ZSH_FUNCS}/osx
