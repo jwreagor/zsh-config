@@ -6,12 +6,12 @@
 
 export __ZSH_FUNCS=${HOME}/.zsh/functions
 
-source ${__ZSH_FUNCS}/conditions
-#source ${__ZSH_FUNCS}/zcacheinit
-#source ${__ZSH_FUNCS}/git
+source ${__ZSH_FUNCS}/conds
 source ${__ZSH_FUNCS}/calc
 source ${__ZSH_FUNCS}/dev
 source ${__ZSH_FUNCS}/osx
-source ${__ZSH_FUNCS}/network
-source ${__ZSH_FUNCS}/npm
-source ${__ZSH_FUNCS}/cat
+source ${__ZSH_FUNCS}/net
+
+#source ${__ZSH_FUNCS}/zcacheinit
+#source ${__ZSH_FUNCS}/git
+#source ${__ZSH_FUNCS}/cat
