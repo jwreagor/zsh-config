@@ -28,6 +28,8 @@
     lo = log --oneline --stat --graph
     pl = pull
     pocket = clone --bare
+    pn = remote prune -n
+    pr = remote prune
     ps = push
     ra = rebase --abort
     rb = rebase
@@ -41,6 +43,7 @@
     undo = reset HEAD
     up = submodule update
     wipe = reset --hard
+    zip = !git archive --verbose -o `pwd`-`date \"+%Y%m%d%H%M%S\"`.zip
 [core]
     editor = emacsclient
 [apply]
