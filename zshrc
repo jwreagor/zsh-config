@@ -12,9 +12,9 @@ rubies+=(/opt/rubies)
 plugins=(brew brew-cask chruby dirpersist
          gem git npm osx zsh-syntax-highlighting)
 
-source $HOME/.zsh/styles
-source $HOME/.zsh/functions/load
 source $HOME/.zsh/env
+source $HOME/.zsh/functions/load
+source $HOME/.zsh/styles
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh/aliases
 

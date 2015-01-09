@@ -4,14 +4,14 @@
 # function loading chain
 ##
 
-export __ZSH_FUNCS=${HOME}/.zsh/functions
+export __ZSH_FUNCS=$HOME/.zsh/functions
 
-source ${__ZSH_FUNCS}/conds
-source ${__ZSH_FUNCS}/utils
-source ${__ZSH_FUNCS}/dev
-source ${__ZSH_FUNCS}/osx
-source ${__ZSH_FUNCS}/net
-source ${__ZSH_FUNCS}/git
+source $__ZSH_FUNCS/conds
+source $__ZSH_FUNCS/utils
+source $__ZSH_FUNCS/dev
+source $__ZSH_FUNCS/osx
+source $__ZSH_FUNCS/net
+source $__ZSH_FUNCS/git
 
 #source ${__ZSH_FUNCS}/zcacheinit
 #source ${__ZSH_FUNCS}/cat
