@@ -27,6 +27,7 @@
 .envrc
 .rbenv-vars
 .ruby-version
+.envrc
 CVS
 TAGS
 build/*
