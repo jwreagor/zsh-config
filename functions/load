@@ -12,6 +12,7 @@ source $__ZSH_FUNCS/dev
 source $__ZSH_FUNCS/osx
 source $__ZSH_FUNCS/net
 source $__ZSH_FUNCS/git
+source $__ZSH_FUNCS/homebrew
 
 #source ${__ZSH_FUNCS}/zcacheinit
 #source ${__ZSH_FUNCS}/cat
