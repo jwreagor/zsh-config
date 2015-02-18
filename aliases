@@ -100,6 +100,8 @@ fi
 
 alias allcron="for user in $(cut -f1 -d: /etc/passwd); do sudo crontab -u $user -l; done"
 alias osx_lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+alias pbfile="pbpaste > $1"
+alias pbtail="pbpaste >> $1"
 
 ##
 # one love
