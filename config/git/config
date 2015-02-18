@@ -4,19 +4,24 @@
     name = Justin Reagor
     email = justinwr@gmail.com
 [color]
-    ui = auto
+    ui = true
 [alias]
     bd = branch -D
     bm = branch -d
     br = branch -avv
+    bs = "!git branch -avv | grep --color"
     ci = commit
     cl = clone
     co = checkout
     cp = cherry-pick
     df = diff
     dh = diff HEAD
+    dr = push origin --delete
+    fb = "!git branch -avv | grep --color feature/"
     fo = fetch origin
     ft = fetch
+    gp = grep -pn --color --break --heading
+    gr = grep -n --color --break --heading
     in = submodule init
     la = log master..HEAD
     lb = log master..HEAD --oneline
@@ -24,15 +29,14 @@
     ld = log -p HEAD..FETCH_HEAD
     lg = log --stat --graph
     ll = log --oneline --graph
-    ln = log
     lo = log --oneline --stat --graph
     pl = pull
-    pocket = clone --bare
     pn = remote prune -n
+    pocket = clone --bare
     pr = remote prune
     ps = push
     ra = rebase --abort
-    rb = rebase
+    rb = "!git branch -avv | grep --color refactor/"
     rc = rebase --continue
     ri = rebase -i
     ro = rebase origin/master
