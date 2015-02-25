@@ -11,7 +11,7 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
 fi
 
 typeset -U path
-path=(.bin $HOME/bin $HOME/.cabal/bin /usr/local/bin /usr/local/sbin $path)
+path=($HOME/bin $HOME/.cabal/bin /usr/local/bin /usr/local/sbin $path)
 
 SHELL=/usr/local/bin/zsh
 TERM=xterm-256color
