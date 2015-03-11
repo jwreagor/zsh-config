@@ -48,6 +48,8 @@
     up = submodule update
     wipe = reset --hard
     zip = !git archive --verbose -o `pwd`-`date \"+%Y%m%d%H%M%S\"`.zip
+    untrack = update-index --assume-unchanged
+    track = update-index --no-assume-unchanged
 [core]
     editor = emacsclient
 [apply]

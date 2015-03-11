@@ -14,9 +14,7 @@
 *.xcworkspace
 *~.nib
 .DS_Store
-.DS_Store
 .bin
-.bundle
 .bundle
 .chef
 .emacs.desktop*
@@ -27,6 +25,8 @@
 .envrc
 .rbenv-vars
 .ruby-version
+.local.gems
+.local.gems.lock
 .envrc
 CVS
 TAGS
@@ -35,3 +35,4 @@ coverage
 rdoc/
 vendor/bundle
 xcuserdata
+config/configstore
