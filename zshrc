@@ -8,9 +8,8 @@ setopt aliases appendhistory autocd automenu completealiases completeinword \
 
 unsetopt correct correctall autonamedirs
 
-rubies+=(/opt/rubies)
-plugins=(brew brew-cask chruby dirpersist
-         gem git npm osx zsh-syntax-highlighting)
+rubies=(/opt/rubies)
+plugins=(brew brew-cask chruby dirpersist docker gem git npm osx zsh-syntax-highlighting)
 
 source $HOME/.zsh/env
 source $HOME/.zsh/functions/load
@@ -18,7 +17,7 @@ source $HOME/.zsh/styles
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh/aliases
 
-eval "$(direnv hook zsh)"
+[ -x $(which direnv) ] && eval "$(direnv hook zsh)"
 
 [ -s $HOME/.local-aliases ] && source $HOME/.local-aliases
 [ -d $HOME/.nix-profile ]   && source $HOME/.nix-profile/etc/profile.d/nix.sh
