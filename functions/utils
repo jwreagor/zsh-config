@@ -1,5 +1,13 @@
 # -*-shell-script-*-
 
+whatever() {
+  mdfind -name $1
+}
+
+whichever() {
+  whatever $1 | grep $2
+}
+
 reload() {
   autoload -U compinit zrecompile
   compinit -d "$ZSH_CACHE/zcomp-$HOST"

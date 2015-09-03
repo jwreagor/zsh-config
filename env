@@ -11,7 +11,7 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
 fi
 
 typeset -U path
-path=($HOME/bin $HOME/.cabal/bin /usr/local/bin /usr/local/sbin $path)
+path=($HOME/bin $HOME/.go/bin $HOME/.cabal/bin /usr/local/bin /usr/local/sbin $path)
 
 SHELL=/usr/local/bin/zsh
 TERM=xterm-256color
@@ -34,7 +34,7 @@ export ZSH_THEME="cheap-eastwood"
 # RUST_LIB=`which rustc | sed -e 's/\/bin\/rustc/\/lib/'`
 export DYLD_LIBRARY_PATH=/usr/local/lib/rustlib/x86_64-apple-darwin/lib:$DYLD_LIBRARY_PATH
 export ERLANG_PATH=/usr/local/opt/erlang
-export GOPATH=$HOME/.go
+export GOPATH=$HOME/Development/cheap/go
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
 export MANPATH=/usr/local/man:/opt/local/man:$MANPATH
 export NODE_PATH=/usr/local/lib/node_modules:$HOME/.node_modules

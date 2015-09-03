@@ -1,22 +1,40 @@
 # -*-shell-script-*-
 
-rand_macaddr() {
+tunnel() {
+  TUNNEL_SSH=$TUNNEL_REMOTE_USER@$TUNNEL_REMOTE_HOST
+  ssh -D $TUNNEL_LOCAL_PORT $TUNNEL_SSH -p $TUNNEL_SSH_PORT 2>/dev/null
+}
+
+randomac() {
   openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//'
 }
 
-macaddr() {
-  ifconfig $1 | grep ether | sed -e "s/\\(\\([a-f0-9]\\{2\\}\\):\\)\\{5\\}/\1/"
+whatmac() {
+  ifconfig $1 | grep ether | sed -e "s/^\\s+ether\\s\\(\\([a-f0-9]\\{2\\}\\):\\)\\{6\\}$/\1/"
 }
 
-new_macaddr() {
+whatip() {
+  curl -sX GET "https://www.whatismyip.com/" | nokogiri --type html -e'puts $_.css(".the-ip").text'
+}
+
+newmac() {
   macaddr
-  sudo ifconfig $1 ether "$(rand_macaddr)"
+  sudo ifconfig $1 ether "$(randomac)"
   ifconfig en0
 }
 
-clear_dnscache() {
-  echo "Resettings DNS cache..."
-  sudo killall -HUP mDNSResponder
+lsmacs() {
+  echo "ARP'ing for local net macs"
+  for i in {1..255}; do arp 192.168.1.$i; done | grep -v "no entry"
+}
+
+killdns() {
+  # Old: sudo killall -HUP mDNSResponder
+  echo "clearing udns cache"
+  sudo dscacheutil -flushcache
+
+  echo "clearing mdns cache"
+  sudo discoveryutil mdnsflushcache
 }
 
 ipaddr() {

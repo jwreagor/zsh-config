@@ -8,8 +8,6 @@ _prg_="%{$fg_bold[blue]%}$(basename $0)%{$reset_color%}"
 _cpy_="$_ver_ -- (c) 2014 Copyright, Justin Reagor <cheapRoc> BSD"
 _dry_=0
 
-let num=0
-
 log_op() {
   print -P "%{$fg_bold[blue]%} --->%{$reset_color%} %{$fg_bold[white]%}$1%{$reset_color%} $2"
 }
@@ -66,6 +64,7 @@ do_dir() {
 }
 
 do_update() {
+  let num=0
   for dir in $(deep_dirs); do
     name=$(echo $dir | sed "s/^\(\.\/\)//")
     do_dir $dir
@@ -74,6 +73,7 @@ do_update() {
     echo
   done
   echo "Updated $num"
+  unset num
 }
 
 do_dry_run() {
@@ -82,7 +82,9 @@ do_dry_run() {
 }
 
 do_help() {
+  echo
   log_prg $_cpy_
+  echo
   print -P "%{$fg_no_bold[white]%}$_nfo_%{$reset_color%}"
   echo
   log_opt "-v" "--version" "List version information"
@@ -90,6 +92,7 @@ do_help() {
   log_opt "-l" "--list"    "Find and list all git directories"
   log_opt "-d" "--dry-run" "Don't perform any actions on found git repos"
   log_opt "-u" "--update"  "Iterate over every nested repo and fetch/update each"
+  echo
 }
 
 for arg in $*; do
@@ -111,8 +114,14 @@ for arg in $*; do
     -h|--help)
       do_help
       ;;
+    -o|--origin)
+      echo $arg
+      ;;
+    *)
+      ;;
   esac
-  unset num
-  exit 0
+  args=$args+1
 done
 
+unset args
+exit 0

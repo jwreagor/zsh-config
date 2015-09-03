@@ -1,15 +1,25 @@
+# -*-shell-script-*-
+
 rb_impl() {
   ruby_parts=("${(s/-/)${${RUBY_ROOT+$(basename $RUBY_ROOT)}}}")
-  echo $ruby_parts[1]
+  if [ -n "$ruby_parts[1]" ]; then
+    echo "$ruby_parts[1]"
+  else
+    echo ""
+  fi
 }
 
 rb_vers() {
   ruby_parts=("${(s/-/)${${RUBY_ROOT+$(basename $RUBY_ROOT)}}}")
-  echo $ruby_parts[2]
+  if [ -n "$ruby_parts[2]" ]; then
+    echo "%{$fg[white]%}:%{$reset_color%}%{$fg[red]%}$ruby_parts[2]%{$reset_color%}"
+  else
+    echo ""
+  fi
 }
 
 if brew-true chruby; then
-  RPS1="%{$fg[yellow]%}\$(rb_impl)\${RUBY_ROOT+:}%{$reset_color%}%{$fg[red]%}\$(rb_vers)%{$reset_color%} $EPS1"
+  RPS1="%{$fg[yellow]%}\$(rb_impl)%{$reset_color%}\$(rb_vers)%{$reset_color%} $EPS1"
 else
   RPS1="%{$reset_color%} $EPS1"
 fi
@@ -27,4 +37,14 @@ git_custom_status() {
   fi
 }
 
-PROMPT='$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}%B$%b '
+display_base_dir() {
+  if [ -n "$DIRENV_DIR" ]; then
+    basename $(pwd)
+  else
+    print -P "%~"
+  fi
+}
+
+PROMPT='$(git_custom_status)%{$fg[cyan]%}[$(display_base_dir)% ]%{$reset_color%}%B$%b '
+
+
