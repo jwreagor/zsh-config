@@ -30,6 +30,7 @@
     lg = log --stat --graph
     ll = log --oneline --graph
     lo = log --oneline --stat --graph
+    lp = log -p
     pl = pull
     pn = remote prune -n
     pocket = clone --bare

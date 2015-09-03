@@ -13,6 +13,7 @@
 *.swp
 *.xcworkspace
 *~.nib
+*.sqlite3*
 .DS_Store
 .bin
 .bundle
@@ -28,6 +29,8 @@
 .local.gems
 .local.gems.lock
 .envrc
+.vagrant
+NOTES.md
 CVS
 TAGS
 build/*
