@@ -31,6 +31,7 @@ alias conns="sudo lsof -i"
 alias woman="man"
 alias makejobs="grep -e '^([a-z_]+)\:' Makefile"
 alias ctags="/usr/local/bin/ctags"
+alias termkeys="infocmp -L1"
 
 alias cores="cat /proc/cpuinfo | grep -i processor | wc -l"
 alias iowaits="#(vmstat | grep [0-9] | awk {\"print \\$16\"})%"
@@ -38,8 +39,13 @@ alias iowaits="#(vmstat | grep [0-9] | awk {\"print \\$16\"})%"
 alias cores="system_profiler SPHardwareDataType -detailLevel mini | grep \"Cores\:\" | sed 's/.*Cores\:.//'"
 alias loads="uptime | cut -d \":\" -f 4 | sed 's/^.//'"
 
-alias boot="boot2docker"
-alias dock="docker"
+alias dk="docker"
+alias dm="docker-machine"
+alias vg="vagrant"
+alias vb='VBoxManage'
+alias vbox="echo 'DEPRECATED: You meant to type \"vb\"'"
+alias lc='librarian-chef'
+alias docker_blanks="docker images | grep '<none>' | cut -f 36 -d' '"
 
 ##
 # for ruby
@@ -56,10 +62,6 @@ alias run="ruby -run -e httpd $(pwd) -p $1"
 alias fl="find . -name \*.rb | xargs flog"
 alias rrg="rake routes | grep $1"
 #alias rake='noglob rake'
-alias bd="boot2docker"
-alias v="vagrant"
-alias vbox='VBoxManage'
-alias lc='librarian-chef'
 alias t="ruby -Ilib:test"
 alias cu="cucumber"
 alias b="bundle"
@@ -75,6 +77,8 @@ alias rgun="gem uninstall $1"
 alias rgis="gem install $1 --no-ri --no-rdoc"
 alias rgsl="gem search $1 -l"
 alias rgsr="gem search $1 -r"
+
+alias mr="multirust"
 
 ##
 # for postgres
