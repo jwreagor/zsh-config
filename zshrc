@@ -9,21 +9,14 @@ setopt aliases appendhistory autocd automenu completealiases completeinword \
 unsetopt correct correctall autonamedirs
 
 rubies=(/opt/rubies)
-plugins=(brew brew-cask chruby dirpersist docker gem git npm osx zsh-syntax-highlighting)
-zsources=(
-  $HOME/.zsh/env
-  $HOME/.zsh/functions/load
-  $HOME/.zsh/styles
-  $ZSH/oh-my-zsh.sh
-  $HOME/.zsh/aliases
-  $HOME/.local-aliases
-)
+plugins=(brew brew-cask chruby dirpersist docker gem git knife knife-ssh npm osx vagrant zsh-syntax-highlighting)
 
-for zsource in $zsources; do
-  echo $zsource
-
-  [ -e $zsource ] && source $zsource
-done
+source $HOME/.zsh/env
+source $ZSH_BASE/functions/load
+source $ZSH_BASE/styles
+source $ZSH/oh-my-zsh.sh
+source $ZSH_BASE/aliases
+source $HOME/.local-aliases
 
 [ -x $(which direnv) ] && eval "$(direnv hook zsh)"
 [ -e $HOME/.nix-profile ] && source $HOME/.nix-profile/etc/profile.d/nix.sh
