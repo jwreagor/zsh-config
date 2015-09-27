@@ -22,7 +22,7 @@ alias dbdate="date '+%Y%m%d'"
 
 alias env="env | sort"
 alias eng="env | grep $1"
-alias psg="ps aux | grep $1"
+alias psg="ps aux | grep -n $1 | grep -v grep"
 alias plp="noglob print -l ${path}"
 alias rand="echo $RANDOM"
 
