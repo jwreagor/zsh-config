@@ -22,3 +22,7 @@ umm () {
 gen-ssh () {
   ssh-keygen -b 2048 -t rsa -f $1-id_rsa -q -N "" -C "${1} $(dbtime)"
 }
+
+psg () {
+  ps aux | grep $1 | grep -v grep
+}
