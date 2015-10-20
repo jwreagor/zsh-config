@@ -27,6 +27,7 @@ alias plp="noglob print -l ${path}"
 alias rand="echo $RANDOM"
 
 alias pwdcp="pwd | pbcopy"
+alias bwd="basename `pwd`"
 alias conns="sudo lsof -i"
 alias woman="man"
 alias makejobs="grep -e '^([a-z_]+)\:' Makefile"
