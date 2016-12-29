@@ -39,3 +39,5 @@ rdoc/
 vendor/bundle
 xcuserdata
 config/configstore
+DEPS.md
+DEPS_lines.md.envrc*

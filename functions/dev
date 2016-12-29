@@ -15,14 +15,58 @@ _load_lots_of_stuff() {
 }
 
 # list pids for unicorn master processes
-umm () {
+umm() {
     ps ax | grep "unicorn.*master.*\-p.${1}" | cut -d ' ' -f 1
 }
 
-gen-ssh () {
-  ssh-keygen -b 2048 -t rsa -f $1-id_rsa -q -N "" -C "${1} $(dbtime)"
+# ad-hoc ssh-key generation without developer involvement
+gen-key() {
+  ssh-keygen -b 4096 -t rsa -f $1-id_rsa -q -N "" -C "${1} $(dbtime)"
 }
 
-psg () {
+# useful pkcs8 encryption of an ssh key
+enc-key() {
+  openssl pkcs8 -topk8 -v2 des3 -in $HOME/.ssh/${1} -out ~/.ssh/${1}.new
+}
+
+psg() {
   ps aux | grep $1 | grep -v grep
+}
+
+# Prints modified files from within all nested Git dirs
+gmod() {
+  for dir in $(l); do cd $dir && git st && cd ..; done | grep "modified" | awk {'print $2'}
+}
+
+# Perform a command over each unique nested directory and file combo
+# for-nested-dir() {
+#   for dir in $($1); do echo $dir | awk -F / '{ print $(NF-4) }'; done | sort | uniq
+# }
+
+# Escape string in shell
+escstr() { echo $(printf '%q' $1) }
+
+# 'snake-case' => 'SnakeCase'
+#
+# Relies on gsed (GNU Sed)
+snake_to_camel() {
+  echo "$1" | gsed 's/-\([a-z]\)/\U\1/g' | gsed 's/\([a-z]\)/\u\1/'
+}
+
+# Increment the next AWS ECR image version label by referencing the highest
+# integer label currently in the repo.
+ecr-next() {
+  aws ecr list-images --repository-name $1 |
+    jq '.imageIds|map(.imageTag)|sort|.[]|strings|tonumber|.+1' 2>/dev/null |
+    sort -r |
+    head -1
+}
+
+lswhich() {
+  ls -la $(which $1)
+}
+
+# Script that loads Triton environment
+tritonenv() {
+  eval $(triton env reagor) && eval $(triton env reagor --docker) && export TF_VAR_account=$SDC_ACCOUNT && export TF_VAR_key_id=$SDC_KEY_ID
 }

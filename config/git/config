@@ -6,18 +6,24 @@
 [color]
     ui = true
 [alias]
+    abort = rebase --abort
+    amend = commit -a --amend --no-edit
+    authors = !git log --pretty=format:%an | sort | uniq -c | sort -r
     bd = branch -D
     bm = branch -d
     br = branch -avv
-    bs = "!git branch -avv | grep --color"
+    bs = !git branch -avv | grep --color
     ci = commit
     cl = clone
     co = checkout
+    cont = rebase --continue
+    contribs = !git log --pretty=format:'%cd %ae' --date=short | sort | uniq -c
     cp = cherry-pick
     df = diff
     dh = diff HEAD
+    dm = diff master..HEAD
     dr = push origin --delete
-    fb = "!git branch -avv | grep --color feature/"
+    fb = !git branch -avv | grep --color feature/
     fo = fetch origin
     ft = fetch
     gp = grep -pn --color --break --heading
@@ -35,24 +41,25 @@
     pn = remote prune -n
     pocket = clone --bare
     pr = remote prune
+    pbremote = !git remote show origin | grep Fetch | cut -d ' ' -f 5 | pbcopy
     ps = push
-    ra = rebase --abort
-    rb = "!git branch -avv | grep --color refactor/"
-    rc = rebase --continue
+    rb = !git branch -avv | grep --color refactor/
     ri = rebase -i
     ro = rebase origin/master
+    rr = rebase -i --root
     rw = reset --soft HEAD~1
     shove = push origin master
     ss = status --short
     st = status
+    track = update-index --no-assume-unchanged
     undo = reset HEAD
+    untrack = update-index --assume-unchanged
     up = submodule update
     wipe = reset --hard
     zip = !git archive --verbose -o `pwd`-`date \"+%Y%m%d%H%M%S\"`.zip
-    untrack = update-index --assume-unchanged
-    track = update-index --no-assume-unchanged
 [core]
     editor = emacsclient
+	pager = diff-so-fancy | less --tabs=1,5 -R
 [apply]
     whitespace = nowarn
 [github]

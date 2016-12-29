@@ -5,3 +5,7 @@
 has_root_uid() {
     [ $UID -eq 0 ]
 }
+
+deprecated() {
+  echo 'DEPRECATED: You meant to type \"${1}\"'
+}

@@ -1,0 +1,21 @@
+# Archive docker image with bzip2
+# docker save <image> | bzip2 > <image>.tar.bz2
+
+docker-blanks() {
+  docker images | grep none | cut -f 36 -d' '
+}
+
+docker-datavol() {
+  docker create -v /datavol --name datavol training/postgres /bin/true
+}
+
+docker-nuke() {
+  # docker rm -f $(docker ps -a -q)
+  # docker rmi $(docker images -q)
+  docker rmi $(docker images -q -f dangling=true)
+  docker volume rm $(docker volume ls -f dangling=true | grep local | cut -d ' ' -f 16)
+}
+
+docker-ip() {
+  docker inspect -f '{{ .NetworkSettings.IPAddress }}'
+}
