@@ -11,3 +11,4 @@ mpd/state
 mpd/sticker.sql
 ncmpcpp/error.log
 config/direnv
+tmux
