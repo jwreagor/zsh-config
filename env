@@ -36,8 +36,10 @@ export TMUX_TMPDIR=$ZSH_BASE/tmux.socket
 
 export DYLD_LIBRARY_PATH=/usr/local/lib/rustlib/x86_64-apple-darwin/lib:$DYLD_LIBRARY_PATH
 export ERLANG_PATH=/usr/local/opt/erlang
-export GOPATH=$HOME/Development/cheap/go
-export JAVA_HOME=$(/usr/libexec/java_home)
+export GOPATH=$HOME/go
+export GOINSTALL=/usr/local/go
+path+=$GOINSTALL/bin
+#export JAVA_HOME=$(/usr/libexec/java_home)
 export MANPATH=/usr/local/man:/opt/local/man:$MANPATH
 export NODE_PATH=/usr/local/lib/node_modules:$HOME/.node_modules
 export XDG_CONFIG_HOME=$HOME/.zsh/config

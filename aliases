@@ -3,15 +3,13 @@
 alias ec="emacsclient"
 alias ee="emacsclient -n"
 
-alias ls="ls -GF"
-# LINUX: alias l="ls -l | awk '{ print $9 }'"
+alias ls="ls -F --color"
 alias l="COLUMNS=12 ls"
 alias ll="ls -l"
 alias lm="ls -mF"
 alias la="ls -laGhF"
 alias lr="ls -lGhr"
 alias dir="ls -asGhF"
-#alias tree="ls -R | grep -e ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
 
 alias duh="du -hs"
 alias duk="du -sk"
@@ -24,7 +22,7 @@ alias dress="coderay | less -R"
 
 alias env="env | sort"
 alias eng="env | grep $1"
-#alias psg="ps aux | grep ${1} | grep -v grep"
+#alias psg="ps aux | grep -iv ${1}"
 alias plp="noglob print -l ${path}"
 alias rand="echo $RANDOM"
 
