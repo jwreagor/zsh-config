@@ -67,6 +67,12 @@ lswhich() {
 }
 
 # Script that loads Triton environment
-tritonenv() {
-  eval $(triton env reagor) && eval $(triton env reagor --docker) && export TF_VAR_account=$SDC_ACCOUNT && export TF_VAR_key_id=$SDC_KEY_ID
+tval() {
+  eval $(triton env $1) && eval $(triton env $1 --docker)
+}
+
+# just an iteration example
+# for i in $(seq 1 $END); do echo $i; done
+iter() {
+  seq 1 $1
 }
