@@ -1,4 +1,4 @@
-![Keep on Truckin](https://dl.dropboxusercontent.com/u/5489129/keep-on-truckin.jpg)
+![Keep on Truckin](https://github.com/cheapRoc/zsh-config/blob/master/img/keepontruckin.jpg?raw=true)
 
 ## Shit you might want to know about my ZSH config...
 
