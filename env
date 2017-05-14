@@ -41,6 +41,7 @@ export GOINSTALL=/usr/local/go
 path+=$GOINSTALL/bin
 path+=$GOPATH/bin
 #export JAVA_HOME=$(/usr/libexec/java_home)
+export TMPDIR=/tmp
 export MANPATH=/usr/local/man:/opt/local/man:$MANPATH
 export NODE_PATH=/usr/local/lib/node_modules:$HOME/.node_modules
 export XDG_CONFIG_HOME=$HOME/.zsh/config
