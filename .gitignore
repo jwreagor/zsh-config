@@ -12,3 +12,4 @@ mpd/sticker.sql
 ncmpcpp/error.log
 config/direnv
 tmux
+scripts/docker-compose*
