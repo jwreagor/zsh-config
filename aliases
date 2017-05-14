@@ -82,6 +82,12 @@ alias rgsr="gem search $1 -r"
 alias mr="multirust"
 
 ##
+# for go
+##
+alias qq="$HOME/bin/q.sh"
+alias rmqq="rm $TMPDIR/q"
+
+##
 # for darwin
 ##
 
