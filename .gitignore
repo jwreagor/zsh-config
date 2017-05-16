@@ -14,3 +14,4 @@ config/direnv
 tmux
 scripts/docker-compose*
 scripts/direnv*
+tmux-*.log
