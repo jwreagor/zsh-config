@@ -59,7 +59,7 @@
     zip = !git archive --verbose -o `pwd`-`date \"+%Y%m%d%H%M%S\"`.zip
 [core]
     editor = emacsclient
-    #pager = diff-so-fancy | less --tabs=1,5 -R
+    pager = diff-so-fancy | less --tabs=1,5 -R
 [apply]
     whitespace = nowarn
 [github]
