@@ -29,6 +29,10 @@ enc-key() {
   openssl pkcs8 -topk8 -v2 des3 -in $HOME/.ssh/${1} -out ~/.ssh/${1}.new
 }
 
+fingerprint-key() {
+  ssh-keygen -E md5 -lf ~/.ssh/wrong-id_rsa.pub | sed 's/^.*MD5:\(.*\w\).*/\1/'
+}
+
 psg() {
   ps aux | grep $1 | grep -v grep
 }
