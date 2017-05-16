@@ -3,7 +3,12 @@
 alias ec="emacsclient"
 alias ee="emacsclient -n"
 
-alias ls="ls -F --color"
+if [[ "$unamestr" == 'Linux' ]]; then
+  alias ls="ls -F --color"
+elif [[ "$unamestr" == 'Darwin' ]]; then
+  alias ls="ls -FG"
+fi
+
 alias l="COLUMNS=12 ls"
 alias ll="ls -l"
 alias lm="ls -mF"
