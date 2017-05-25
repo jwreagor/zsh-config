@@ -57,3 +57,5 @@ fi
 # tar -xzvf ruby-install-0.6.1.tar.gz
 # cd ruby-install-0.6.1/
 # sudo make install
+
+# npm install -g diff-so-fancy
