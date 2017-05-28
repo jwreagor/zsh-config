@@ -5,6 +5,8 @@ alias ee="emacsclient -n"
 
 if [[ "$unamestr" == 'Linux' ]]; then
   alias ls="ls -F --color"
+elif [[ "$unamestr" == 'SunOS' ]]; then
+  alias ls="ls -F --color"
 elif [[ "$unamestr" == 'Darwin' ]]; then
   alias ls="ls -FG"
 fi

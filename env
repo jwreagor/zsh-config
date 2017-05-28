@@ -8,6 +8,8 @@ elif [[ "$unamestr" == 'FreeBSD' ]]; then
   export platform='freebsd'
 elif [[ "$unamestr" == 'Darwin' ]]; then
   export platform='osx'
+elif [[ "$unamestr" == 'SunOS' ]]; then
+  export platform='smartos'
 fi
 
 typeset -U path
