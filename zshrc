@@ -17,7 +17,7 @@ plugins=(chruby dirpersist docker gem git knife knife-ssh npm nvm python pip vag
 [ -f $ZSH/oh-my-zsh.sh ] && source $ZSH/oh-my-zsh.sh
 [ -f $ZSH_BASE/aliases ] && source $ZSH_BASE/aliases
 [ -f $HOME/.local-aliases ] && source $HOME/.local-aliases
-[ -x $(which direnv) ] && eval "$(direnv hook zsh)"
+[ -x "$(which direnv)" ] && eval "$(direnv hook zsh)"
 [ -e $HOME/.nix-profile ] && source $HOME/.nix-profile/etc/profile.d/nix.sh
 [ -e $HOME/.cargo/env ] && source $HOME/.cargo/env &>/dev/null
 
