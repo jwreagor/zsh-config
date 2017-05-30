@@ -45,6 +45,10 @@ display_base_dir() {
   fi
 }
 
-PROMPT='$(git_custom_status)%{$fg[cyan]%}[$(display_base_dir)% ]%{$reset_color%}%B$%b '
+get_hostname() {
+  echo "%{$fg[blue]%}[$(echo $HOST | sed 's/\(.*\)\..*/\1/')]%{$reset_color%}"
+}
+
+PROMPT='$(git_custom_status)$(get_hostname)%{$fg[cyan]%}[$(display_base_dir)% ]%{$reset_color%}%B$%b '
 
 
