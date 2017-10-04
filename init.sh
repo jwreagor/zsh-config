@@ -13,7 +13,13 @@ if [ "$platform" = "osx" ]; then
   # Settings > Keyboard > Shortcuts > All controls
 else if [ "$platform" = "linux" ]; then
    echo "Install zsh and emacs24-nox"
-   sudo apt-get install zsh direnv emacs24-nox
+   sudo apt-get install -y \
+        direnv \
+        emacs24-nox \
+        git \
+        silversearcher-ag \
+        tmux \
+        zsh
 fi
 
 if [ ! -d "${HOME}/.zsh" ]; then
@@ -28,10 +34,10 @@ fi
 
 ln -s $HOME/.zsh/zshrc $HOME/.zshrc
 ln -s $HOME/.zsh/tmux.conf $HOME/.tmux.conf
-ln -s $HOME/.zsh/pryrc $HOME/.pryrc
-ln -s $HOME/.zsh/irbrc $HOME/.irbrc
-ln -s $HOME/.zsh/gitignore $HOME/.gitignore
-ln -s $HOME/.zsh/gitconfig $HOME/.gitconfig
+#ln -s $HOME/.zsh/pryrc $HOME/.pryrc
+#ln -s $HOME/.zsh/irbrc $HOME/.irbrc
+#ln -s $HOME/.zsh/gitignore $HOME/.gitignore
+#ln -s $HOME/.zsh/gitconfig $HOME/.gitconfig
 #ln -s $HOME/.zsh/ccl-init.lisp $HOME/.ccl-init.lisp
 #ln -s $HOME/.zsh/ackrc $HOME/.ackrc
 #ln -s $HOME/.zsh/mpd $HOME/.mpd
@@ -41,6 +47,12 @@ if [ ! -d "${HOME}/.emacs.d" ]; then
   cd $HOME
   git clone git@github.com:cheapRoc/emacs-config.git $HOME/.emacs.d
   cd .emacs.d
+fi
+
+## init go coding deps
+if [ -x "$(which go)" ]; then
+  go get -u github.com/rogpeppe/godef
+  go get -u github.com/nsf/gocode
 fi
 
 # init nvm
