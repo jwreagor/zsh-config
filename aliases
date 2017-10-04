@@ -93,6 +93,7 @@ alias mr="multirust"
 ##
 alias qq="$HOME/bin/q.sh"
 alias rmqq="rm $TMPDIR/q"
+alias errman="man 2 intro | less -Ip"
 
 ##
 # for darwin
