@@ -1,0 +1,5 @@
+# -*-sh-*-
+
+lscn() {
+  triton insts -H -o compute_node | sort | uniq -c | sort
+}

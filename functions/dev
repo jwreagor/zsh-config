@@ -21,7 +21,7 @@ umm() {
 
 # ad-hoc ssh-key generation without developer involvement
 gen-key() {
-  ssh-keygen -b 4096 -t rsa -f $1-id_rsa -q -N "" -C "${1} $(dbtime)"
+  ssh-keygen -b 4096 -t rsa -f $1-id_rsa -q -N "" -C "${1}-$(dbtime)"
 }
 
 # useful pkcs8 encryption of an ssh key
@@ -79,4 +79,13 @@ tval() {
 # for i in $(seq 1 $END); do echo $i; done
 iter() {
   seq 1 $1
+}
+
+# unset docker env
+unset-docker() {
+  unset DOCKER_TLS_VERIFY DOCKER_CERT_PATH DOCKER_HOST
+}
+
+linux-ip() {
+  /sbin/ifconfig net0 | awk '/inet addr/ {split ($2,A,":"); print A[2]}'
 }
