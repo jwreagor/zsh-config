@@ -1,6 +1,8 @@
 {
 /* Keybindings for emacs emulation.  Compiled by Jacob Rus.
  *
+ * Copy into `~/Library/KeyBindings/DefaultKeyBinding.dict`.
+ *
  * This is a pretty good set, especially considering that many emacs bindings
  * such as C-o, C-a, C-e, C-k, C-y, C-v, C-f, C-b, C-p, C-n, C-t, and
  * perhaps a few more, are already built into the system.
