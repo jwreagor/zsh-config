@@ -16,3 +16,4 @@ scripts/docker-compose*
 scripts/direnv*
 tmux-*.log
 scripts/docker*
+config/matterhorn/history.txt
