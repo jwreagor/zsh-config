@@ -3,6 +3,7 @@
 [user]
     name = Justin Reagor
     email = justin.reagor@joyent.com
+    signingkey = BAD1C0FE46EF571E
 [color]
     ui = true
 [alias]
@@ -24,6 +25,7 @@
     dm = diff master..HEAD
     dr = push origin --delete
     fb = !git branch -avv | grep --color feature/
+    ff = pull --ff-only
     fo = fetch origin
     ft = fetch
     gp = grep -pn --color --break --heading
@@ -37,11 +39,11 @@
     ll = log --oneline --graph
     lo = log --oneline --stat --graph
     lp = log -p
+    pbremote = !git remote show origin | grep Fetch | cut -d ' ' -f 5 | pbcopy
     pl = pull
     pn = remote prune -n
     pocket = clone --bare
     pr = remote prune
-    pbremote = !git remote show origin | grep Fetch | cut -d ' ' -f 5 | pbcopy
     ps = push
     rb = !git branch -avv | grep --color refactor/
     ri = rebase -i
