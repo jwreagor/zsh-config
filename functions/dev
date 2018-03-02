@@ -99,3 +99,12 @@ unset-triton() {
 linux-ip() {
   /sbin/ifconfig net0 | awk '/inet addr/ {split ($2,A,":"); print A[2]}'
 }
+
+mac-ip() {
+  /sbin/ifconfig en0 | awk '/inet / {split ($2,A,":"); print A[1]}'
+}
+
+# list all envchain environments under
+ls-envchains() {
+    envchain -l | sort | uniq
+}
