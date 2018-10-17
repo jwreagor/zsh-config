@@ -52,7 +52,8 @@ fi
 ## init go coding deps
 if [ -x "$(which go)" ]; then
   go get -u github.com/rogpeppe/godef
-  go get -u github.com/nsf/gocode
+  go get -u github.com/mdempsky/gocode
+  go get -u golang.org/x/tools/cmd/guru
 fi
 
 # init nvm

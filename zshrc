@@ -33,7 +33,4 @@ fi
 
 [ -f /usr/local/opt/nvm/nvm.sh ] && source /usr/local/opt/nvm/nvm.sh
 
-#if [ -f /Users/justin/.triton.completion ]; then
-#  bashcompinit
-#  source ~/.triton.completion
-#fi
+[ -f $HOME/.cargo/env ] && source $HOME/.cargo/env

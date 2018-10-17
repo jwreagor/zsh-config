@@ -24,6 +24,15 @@ umm() {
     ps ax | grep "unicorn.*master.*\-p.${1}" | cut -d ' ' -f 1
 }
 
+uuidgen() {
+    /usr/bin/uuidgen | tr '[:upper:]' '[:lower:]'
+}
+
+# copy uuid into paste buffer
+pbuuid() {
+    uuidgen | tr '[:upper:]' '[:lower:]' | tr '\n' '\1' | pbcopy
+}
+
 # ad-hoc ssh-key generation without developer involvement
 gen-key() {
   ssh-keygen -b 4096 -t rsa -f $1-id_rsa -q -N "" -C "${1}-$(dbtime)"
