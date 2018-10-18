@@ -17,3 +17,4 @@ scripts/direnv*
 tmux-*.log
 scripts/docker*
 config/matterhorn/history.txt
+config/autostart
