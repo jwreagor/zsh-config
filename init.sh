@@ -1,4 +1,8 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+set -o xtrace
 
 #
 # it is not necessary to change
@@ -15,7 +19,7 @@ else if [ "$platform" = "linux" ]; then
    echo "Install zsh and emacs24-nox"
    sudo apt-get install -y \
         direnv \
-        emacs24-nox \
+        emacs-nox \
         git \
         silversearcher-ag \
         tmux \
@@ -36,8 +40,6 @@ ln -s $HOME/.zsh/zshrc $HOME/.zshrc
 ln -s $HOME/.zsh/tmux.conf $HOME/.tmux.conf
 #ln -s $HOME/.zsh/pryrc $HOME/.pryrc
 #ln -s $HOME/.zsh/irbrc $HOME/.irbrc
-#ln -s $HOME/.zsh/gitignore $HOME/.gitignore
-#ln -s $HOME/.zsh/gitconfig $HOME/.gitconfig
 #ln -s $HOME/.zsh/ccl-init.lisp $HOME/.ccl-init.lisp
 #ln -s $HOME/.zsh/ackrc $HOME/.ackrc
 #ln -s $HOME/.zsh/mpd $HOME/.mpd
@@ -54,21 +56,24 @@ if [ -x "$(which go)" ]; then
   go get -u github.com/rogpeppe/godef
   go get -u github.com/mdempsky/gocode
   go get -u golang.org/x/tools/cmd/guru
+  go get -u golang.org/x/tools/cmd/goimports
 fi
 
-# init nvm
-# curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.4/install.sh | bash
+if [ -x "${WITH_NODE}" ]; then
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.4/install.sh | bash
+    # npm install -g diff-so-fancy
+fi
 
-# init chruby
-# wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
-# tar -xzvf chruby-0.3.9.tar.gz
-# cd chruby-0.3.9/
-# sudo make install
+if [ -x "${WITH_RUBY}" ]; then
+    local __chruby_version=0.3.9
+    wget -O chruby-${__chruby_version}.tar.gz https://github.com/postmodern/chruby/archive/v${__chruby_version}.tar.gz
+    tar -xzvf chruby-${__chruby_version}.tar.gz
+    cd chruby-${__chruby_version}/
+    sudo make install
 
-# init ruby-install
-# wget -O ruby-install-0.6.1.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.1.tar.gz
-# tar -xzvf ruby-install-0.6.1.tar.gz
-# cd ruby-install-0.6.1/
-# sudo make install
-
-# npm install -g diff-so-fancy
+    local __rins_version=0.6.1
+    wget -O ruby-install-${__rins_version}.tar.gz https://github.com/postmodern/ruby-install/archive/v${__rins_version}.tar.gz
+    tar -xzvf ruby-install-${__rins_version}.tar.gz
+    cd ruby-install-${__rins_version}/
+    sudo make install
+fi
