@@ -1,4 +1,8 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+set -o xtrace
 
 _nfo_="uptime with options"
 _ver_="0.1.0"
