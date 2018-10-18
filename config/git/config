@@ -3,7 +3,7 @@
 [user]
     name = Justin Reagor
     email = justin.reagor@joyent.com
-    signingkey = BAD1C0FE46EF571E
+	signingkey = F3361AE42CB35462
 [color]
     ui = true
 [alias]
@@ -72,3 +72,5 @@
     default = upstream
 #[diff "exif"]
 #    textconv = exiftool
+[commit]
+	gpgsign = true
