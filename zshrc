@@ -9,7 +9,7 @@ setopt aliases appendhistory autocd automenu completealiases completeinword \
 unsetopt correct correctall autonamedirs
 
 rubies=(/opt/rubies)
-plugins=(chruby dirpersist docker gem git knife knife-ssh npm nvm python pip vagrant zsh-syntax-highlighting)
+plugins=(chruby dirpersist docker gem git knife knife-ssh npm nvm python pip ssh-agent vagrant zsh-syntax-highlighting)
 
 [ -f $HOME/.zsh/env ] && source $HOME/.zsh/env
 [ -f $ZSH_BASE/functions/load ] && source $ZSH_BASE/functions/load
@@ -32,8 +32,3 @@ fi
 [ -f /Users/justin/.travis/travis.sh ] && source /Users/justin/.travis/travis.sh
 
 [ -f /usr/local/opt/nvm/nvm.sh ] && source /usr/local/opt/nvm/nvm.sh
-
-#if [ -f /Users/justin/.triton.completion ]; then
-#  bashcompinit
-#  source ~/.triton.completion
-#fi
