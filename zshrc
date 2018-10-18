@@ -32,3 +32,5 @@ fi
 [ -f /Users/justin/.travis/travis.sh ] && source /Users/justin/.travis/travis.sh
 
 [ -f /usr/local/opt/nvm/nvm.sh ] && source /usr/local/opt/nvm/nvm.sh
+
+[ -f $HOME/.cargo/env ] && source $HOME/.cargo/env

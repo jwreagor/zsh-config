@@ -3,7 +3,7 @@
 [user]
     name = Justin Reagor
     email = justin.reagor@joyent.com
-	signingkey = F3361AE42CB35462
+    signingkey = F3361AE42CB35462
 [color]
     ui = true
 [alias]
@@ -70,7 +70,13 @@
     relativePaths = false
 [push]
     default = upstream
-#[diff "exif"]
+# [diff "exif"]
 #    textconv = exiftool
+# [gpg]
+# 	program = gpg2
 [commit]
-	gpgsign = true
+    gpgsign = true
+#[gpg]
+#    program = /usr/local/bin/gpg
+[url "git@github.com:"]
+    insteadOf = https://github.com/
