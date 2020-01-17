@@ -9,7 +9,7 @@ setopt aliases appendhistory autocd automenu completealiases completeinword \
 unsetopt correct correctall autonamedirs
 
 rubies=(/opt/rubies)
-plugins=(chruby dirpersist docker gem git knife knife-ssh npm nvm python pip ssh-agent vagrant zsh-syntax-highlighting)
+plugins=(chruby dirpersist docker gem git knife npm nvm python pip ssh-agent vagrant zsh-syntax-highlighting)
 
 [ -f $HOME/.zsh/env ] && source $HOME/.zsh/env
 [ -f $ZSH_BASE/functions/load ] && source $ZSH_BASE/functions/load

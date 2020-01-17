@@ -42,4 +42,3 @@ config/configstore
 coverage
 rdoc/
 vendor/bundle
-xcuserdata

@@ -37,3 +37,4 @@ src
 tmp
 tmux
 tmux-*.log
+config/dlv/

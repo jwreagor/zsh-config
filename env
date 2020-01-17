@@ -13,7 +13,7 @@ elif [[ "$unamestr" == 'SunOS' ]]; then
 fi
 
 typeset -U path
-path=($HOME/bin $HOME/.go/bin $HOME/.cabal/bin /usr/local/bin /usr/local/sbin $path)
+path=($HOME/bin $HOME/.go/bin $HOME/.cabal/bin $HOME/.please /usr/local/bin /usr/local/sbin $path)
 
 #SHELL=/usr/local/bin/zsh
 TERM=xterm-256color
