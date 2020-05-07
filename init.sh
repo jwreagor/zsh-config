@@ -21,6 +21,7 @@ else if [ "$platform" = "linux" ]; then
         direnv \
         emacs-nox \
         git \
+        jq \
         silversearcher-ag \
         tmux \
         zsh
@@ -33,7 +34,7 @@ fi
 
 if [ ! -d "${HOME}/.oh-my-zsh" ]; then
   cd $HOME
-  git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+  git clone https://github.com/ohmyzsh/ohmyzsh.git $HOME/.oh-my-zsh
 fi
 
 ln -s $HOME/.zsh/zshrc $HOME/.zshrc
